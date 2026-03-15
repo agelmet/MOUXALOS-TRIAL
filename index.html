@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ψ-PSY | Ψυχολόγος Γλυφάδα - Ψυχοθεραπεία & Συμβουλευτική</title>
+  <meta name="description" content="Ψυχοθεραπεία & Συμβουλευτική στη Γλυφάδα. 10 εξειδικευμένοι ψυχολόγοι, ατομική & ομαδική θεραπεία, θεραπεία ζεύγους. Κλείστε συνεδρία σήμερα." />
+  <meta name="keywords" content="ψυχολόγος Γλυφάδα, ψυχοθεραπεία Αθήνα, ατομική ψυχοθεραπεία, ομαδική θεραπεία, θεραπεία ζεύγους, online θεραπεία" />
+  <meta property="og:title" content="Ψ-PSY | Ινστιτούτο Ψυχικής Υγείας & Ψυχοθεραπείας" />
+  <meta property="og:description" content="Ένας ασφαλής χώρος αφιερωμένος στην ψυχική σας υγεία. Εξειδικευμένοι επαγγελματίες στη Γλυφάδα." />
+  <meta property="og:type" content="website" />
+  
+  <link rel="preload" as="image" href="https://github.com/agelmet/Image-hosting-/blob/main/2026-02-16-10.jpg?raw=true">
+  
+  <link rel="icon" href="https://github.com/agelmet/Image-hosting-/blob/main/597891457_1432943218836853_7585099840606536804_n.jpg?raw=true" type="image/jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Playfair Display', 'Georgia', 'serif'],
+            body: ['DM Sans', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            forest: { DEFAULT: '#183833', light: '#1e4a44', deep: '#153430' },
+            sage: { DEFAULT: '#7a8873', light: '#8f9e88', dark: '#5e6e58' },
+            cream: { DEFAULT: '#fff8f1', dark: '#fdf5eb' },
+          },
+        },
+      },
+    };
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out-circ: cubic-bezier(0.85, 0, 0.15, 1);
+      --ease-wipe: cubic-bezier(0.77, 0, 0.175, 1);
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; cursor: none !important; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', system-ui, sans-serif; background: #fff8f1; color: #183833; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', Georgia, serif; }
+
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: #fff8f1; }
+    ::-webkit-scrollbar-thumb { background: #7a8873; border-radius: 10px; }
+    ::-selection { background: rgba(122, 136, 115, 0.3); color: #153430; }
+
+    .cursor-dot { width: 6px; height: 6px; background: #7a8873; position: fixed; border-radius: 50%; pointer-events: none; z-index: 10000; transform: translate(-50%, -50%); transition: opacity 0.3s, background 0.3s; }
+    .cursor-ring { width: 40px; height: 40px; border: 1px solid rgba(122,136,115,0.6); position: fixed; border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: width 0.4s var(--ease-out-expo), height 0.4s var(--ease-out-expo), background 0.4s, border-color 0.4s, border-radius 0.4s; }
+    
+    body.cursor-snap .cursor-dot { opacity: 0; }
+    body.cursor-snap .cursor-ring { border-color: transparent; background: rgba(122,136,115,0.15); backdrop-filter: blur(4px); mix-blend-mode: multiply; }
+    
+    #pageWipe { position: fixed; inset: 0; background: #153430; z-index: 99999; pointer-events: none; transform: scaleY(0); transform-origin: bottom; transition: transform 0.8s var(--ease-wipe); }
+    #pageWipe.wipe-in { transform: scaleY(1); transform-origin: bottom; }
+    #pageWipe.wipe-out { transform: scaleY(0); transform-origin: top; }
+
+    .page { display: none; opacity: 0; }
+    .page.active { display: block; opacity: 1; animation: pageFadeIn 1s var(--ease-out-expo) forwards; }
+    @keyframes pageFadeIn { 0% { opacity: 0; transform: translateY(20px) scale(0.98); filter: blur(4px); } 100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); } }
+
+    .nav-blur { backdrop-filter: blur(24px) saturate(200%); -webkit-backdrop-filter: blur(24px) saturate(200%); border-bottom: 1px solid rgba(122,136,115,0.1); }
+    
+    /* UI Fix: Hero Overlay Visibility Improved */
+    .bg-hero-overlay { background: linear-gradient(180deg, rgba(21,52,48,0.2) 0%, rgba(24,56,51,0.4) 50%, rgba(21,52,48,0.7) 100%); }
+
+    .marquee-container { position: absolute; white-space: nowrap; overflow: hidden; opacity: 0.03; font-family: 'Playfair Display', serif; font-size: clamp(5rem, 15vw, 15rem); font-weight: 800; color: #fff; line-height: 1; pointer-events: none; z-index: 0; }
+    .marquee-content { display: inline-block; animation: marquee 40s linear infinite; }
+    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    .bento-card { position: relative; overflow: hidden; background: #fff; border-radius: 2rem; border: 1px solid rgba(122,136,115,0.15); transition: transform 0.5s var(--ease-out-expo), box-shadow 0.5s var(--ease-out-expo); display: flex; flex-direction: column; }
+    .bento-card:hover { transform: translateY(-8px) scale(1.01); box-shadow: 0 40px 80px -20px rgba(21,52,48,0.15); border-color: rgba(122,136,115,0.4); z-index: 10; }
+    .bento-card::before { content: ''; position: absolute; top: var(--mouse-y, 50%); left: var(--mouse-x, 50%); width: 250%; height: 250%; background: radial-gradient(circle at center, rgba(122,136,115,0.06) 0%, transparent 40%); transform: translate(-50%, -50%); pointer-events: none; opacity: 0; transition: opacity 0.5s; z-index: 0; }
+    .bento-card:hover::before { opacity: 1; }
+    .bento-content { position: relative; z-index: 1; display: flex; flex-direction: column; height: 100%; }
+
+    .tilt-card { perspective: 1200px; transform-style: preserve-3d; height: 100%; }
+    .tilt-card-inner { position: relative; height: 100%; transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo); transform: translateZ(0); will-change: transform; overflow: hidden; }
+    .tilt-card:hover .tilt-card-inner { box-shadow: 0 40px 80px -20px rgba(21,52,48,0.25); }
+    .glare { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.3) 0%, transparent 60%); opacity: 0; transition: opacity 0.4s; mix-blend-mode: overlay; z-index: 10; transform: translateZ(1px); }
+    .tilt-card:hover .glare { opacity: 1; }
+    .card-content-3d { transform: translateZ(30px); transition: transform 0.4s var(--ease-out-expo); }
+    .tilt-card:hover .card-content-3d { transform: translateZ(50px); }
+
+    .text-mask { overflow: hidden; display: inline-flex; vertical-align: top; }
+    .text-mask span { display: inline-block; transform: translateY(110%); transition: transform 1.2s var(--ease-out-expo); }
+    .reveal.visible .text-mask span, .stagger.visible .text-mask span { transform: translateY(0); }
+    
+    .reveal { opacity: 0; transform: translateY(50px); clip-path: inset(10% 0 0 0); transition: opacity 1.2s var(--ease-out-expo), transform 1.2s var(--ease-out-expo), clip-path 1.2s var(--ease-out-expo); }
+    .reveal.visible { opacity: 1; transform: translateY(0); clip-path: inset(0 0 0 0); }
+    
+    .img-reveal { clip-path: inset(100% 0 0 0); transition: clip-path 1.4s var(--ease-out-expo); }
+    .img-reveal img { transform: scale(1.2); transition: transform 1.8s var(--ease-out-expo); }
+    .img-reveal.visible { clip-path: inset(0 0 0 0); }
+    .img-reveal.visible img { transform: scale(1); }
+
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+    .animate-float { animation: float 6s ease-in-out infinite; }
+
+    .orb { position: absolute; border-radius: 50%; filter: blur(120px); pointer-events: none; mix-blend-mode: screen; }
+
+    .lightbox { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(15,35,32,0.98); align-items: center; justify-content: center; backdrop-filter: blur(20px); opacity: 0; transition: opacity 0.5s; }
+    .lightbox.active { display: flex; opacity: 1; }
+    .lightbox img { max-width: 85vw; max-height: 85vh; border-radius: 8px; box-shadow: 0 40px 100px rgba(0,0,0,0.6); transform: scale(0.9); transition: transform 0.8s var(--ease-out-expo); }
+    .lightbox.active img { transform: scale(1); }
+
+    .magnetic-btn { position: relative; overflow: hidden; z-index: 10; transition: transform 0.3s var(--ease-out-expo), color 0.3s, box-shadow 0.3s; }
+    .magnetic-btn::before { content: ''; position: absolute; top: 100%; left: 0; width: 100%; height: 100%; background: #153430; z-index: -1; transition: top 0.5s var(--ease-out-expo); border-radius: 50% 50% 0 0; }
+    .magnetic-btn:hover::before { top: 0; border-radius: 0; }
+    .magnetic-btn:hover { color: #fff8f1; border-color: transparent; box-shadow: 0 20px 40px rgba(21,52,48,0.3); }
+
+    .stagger > * { opacity: 0; transform: translateY(40px); clip-path: inset(10% 0 0 0); }
+    .stagger.visible > *:nth-child(1) { transition-delay: 0.05s; }
+    .stagger.visible > *:nth-child(2) { transition-delay: 0.15s; }
+    .stagger.visible > *:nth-child(3) { transition-delay: 0.25s; }
+    .stagger.visible > *:nth-child(4) { transition-delay: 0.35s; }
+    .stagger.visible > *:nth-child(5) { transition-delay: 0.45s; }
+    .stagger.visible > * { transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo), clip-path 0.9s var(--ease-out-expo); opacity: 1; transform: translateY(0); clip-path: inset(0 0 0 0); }
+
+    .counter-value { font-variant-numeric: tabular-nums; }
+
+    .service-icon { width: 64px; height: 64px; border-radius: 18px; background: linear-gradient(135deg, rgba(122,136,115,0.1), rgba(143,158,136,0.2)); display: flex; align-items: center; justify-content: center; color: #7a8873; flex-shrink: 0; box-shadow: inset 0 0 0 1px rgba(122,136,115,0.2); transition: all 0.5s var(--ease-out-expo); }
+    .bento-card:hover .service-icon, .tilt-card:hover .service-icon { background: linear-gradient(135deg, #7a8873, #8f9e88); color: #fff8f1; transform: scale(1.1); box-shadow: 0 15px 30px rgba(122,136,115,0.3); }
+
+    .team-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 16px; filter: grayscale(50%) contrast(1.1); transition: filter 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo); }
+    .tilt-card:hover .team-img { filter: grayscale(0%) contrast(1.05); transform: scale(1.06); }
+
+    .grain::before { content: ''; position: fixed; inset: 0; z-index: 9997; pointer-events: none; opacity: 0.04; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+    .section-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(122,136,115,0.2), transparent); position: relative; margin: 0 auto; max-width: 85%; }
+    .section-divider::after { content: ''; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(45deg); width: 8px; height: 8px; background: #fff8f1; border: 1px solid #7a8873; box-shadow: 0 0 0 4px rgba(122,136,115,0.1); }
+
+    .nav-logo-img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255,255,255,0.3); transition: all 0.5s var(--ease-out-expo); }
+    .group:hover .nav-logo-img { transform: scale(1.1) rotate(5deg); border-color: #7a8873; }
+
+    .elegant-divider { display: flex; items-center; gap: 20px; margin: 0 auto; max-width: 300px; }
+    .elegant-divider .line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, #7a8873); }
+    .elegant-divider .line:last-child { background: linear-gradient(90deg, #7a8873, transparent); }
+    .elegant-divider .dot { width: 6px; height: 6px; border-radius: 50%; background: #7a8873; transform: rotate(45deg); box-shadow: 0 0 0 3px rgba(122,136,115,0.2); }
+    
+    .hover-link { position: relative; padding-bottom: 4px; }
+    .hover-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: currentColor; transition: width 0.4s var(--ease-out-expo); }
+    .hover-link:hover::after, .hover-link.active-link::after { width: 100%; }
+    
+    .interactable { cursor: none; }
+
+    .drop-cap::first-letter { float: left; font-size: 4rem; line-height: 0.8; padding-top: 0.1em; padding-right: 0.15em; padding-left: 0.05em; font-family: 'Playfair Display', serif; color: #7a8873; font-weight: bold; }
+    .editorial-quote { position: relative; padding: 2rem 0 2rem 3rem; margin: 3rem 0; border-left: 2px solid #7a8873; font-style: italic; font-size: 1.25rem; color: #183833; font-family: 'Playfair Display', serif; background: linear-gradient(90deg, rgba(122,136,115,0.05), transparent); }
+    .editorial-quote::before { content: '"'; position: absolute; top: 0.5rem; left: 0.5rem; font-size: 4rem; color: rgba(122,136,115,0.2); font-family: 'Playfair Display', serif; line-height: 1; }
+    .faq-item { border-bottom: 1px solid rgba(122,136,115,0.15); padding: 1.5rem 0; transition: background 0.3s; }
+    .faq-item:hover { background: rgba(122,136,115,0.02); }
+    .faq-q { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: #153430; margin-bottom: 0.5rem; }
+    .faq-a { font-family: 'DM Sans', sans-serif; color: rgba(24,56,51,0.7); line-height: 1.7; }
+    
+    .line-clamp-4 { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+
+    /* Fix: Mobile Menu Sticky Close Button */
+    .mobile-close-btn { position: sticky; top: 2rem; right: 2rem; align-self: flex-end; margin-bottom: -2rem; z-index: 50; }
+  </style>
+</head>
+<body class="grain">
+
+  <div id="pageWipe"></div>
+
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <div id="lightbox" class="lightbox interactable magnetic-target" onclick="closeLightbox()">
+    <button onclick="closeLightbox()" class="absolute top-8 right-8 text-white/50 hover:text-white transition-colors interactable z-50"><i data-lucide="x" class="w-10 h-10"></i></button>
+    <img id="lightboxImg" src="" alt="Gallery image" />
+  </div>
+
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-700 py-6 bg-transparent">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <a href="#" onclick="event.preventDefault(); navigate('home')" class="flex items-center gap-4 group interactable magnetic-target" data-magnetic-strength="0.2">
+        <img id="navLogoImg" src="https://github.com/agelmet/Image-hosting-/blob/main/597891457_1432943218836853_7585099840606536804_n.jpg?raw=true" alt="Ψ-PSY Logo" class="nav-logo-img" />
+        <span id="navTitle" class="text-xl font-semibold tracking-widest transition-colors duration-500 text-white uppercase" style="font-family:'Playfair Display',serif;">Ψ-PSY</span>
+      </a>
+      
+      <div class="flex items-center gap-4 lg:gap-10">
+        <button onclick="toggleLanguage()" id="langToggle" class="px-3 py-1.5 border border-sage/40 text-white text-xs font-bold rounded-full transition-all duration-300 hover:bg-sage/20 interactable magnetic-target uppercase">EN</button>
+
+        <nav class="hidden lg:flex items-center gap-10">
+          <a href="#" onclick="event.preventDefault(); navigate('home')" class="nav-link hover-link interactable magnetic-target text-xs tracking-widest font-semibold transition-colors duration-300 text-white/80 hover:text-white uppercase" data-page="home" data-t="nav_home">ΑΡΧΙΚΗ</a>
+          <a href="#" onclick="event.preventDefault(); navigate('ypiresies')" class="nav-link hover-link interactable magnetic-target text-xs tracking-widest font-semibold transition-colors duration-300 text-white/80 hover:text-white uppercase" data-page="ypiresies" data-t="nav_services">ΥΠΗΡΕΣΙΕΣ</a>
+          <a href="#" onclick="event.preventDefault(); navigate('psychologoi')" class="nav-link hover-link interactable magnetic-target text-xs tracking-widest font-semibold transition-colors duration-300 text-white/80 hover:text-white uppercase" data-page="psychologoi" data-t="nav_team">Η ΟΜΑΔΑ ΜΑΣ</a>
+          <a href="#" onclick="event.preventDefault(); navigate('to-kentro')" class="nav-link hover-link interactable magnetic-target text-xs tracking-widest font-semibold transition-colors duration-300 text-white/80 hover:text-white uppercase" data-page="to-kentro" data-t="nav_center">ΤΟ ΚΕΝΤΡΟ</a>
+          <a href="#" onclick="event.preventDefault(); navigate('epikoinonia')" class="nav-link hover-link interactable magnetic-target text-xs tracking-widest font-semibold transition-colors duration-300 text-white/80 hover:text-white uppercase" data-page="epikoinonia" data-t="nav_contact">ΕΠΙΚΟΙΝΩΝΙΑ</a>
+          <a href="#" onclick="event.preventDefault(); navigate('epikoinonia')" class="ml-2 px-8 py-3.5 bg-sage border border-transparent text-cream text-xs tracking-widest font-bold rounded-full transition-all duration-500 magnetic-btn interactable magnetic-target uppercase z-10" data-snap="true" data-t="btn_book">ΚΛΕΙΣΤΕ ΣΥΝΕΔΡΙΑ</a>
+        </nav>
+        
+        <button id="mobileToggle" onclick="toggleMobileMenu()" class="lg:hidden p-2 text-white interactable magnetic-target" aria-label="Toggle menu">
+          <i data-lucide="menu" class="w-8 h-8"></i>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="lg:hidden hidden fixed inset-0 bg-cream z-[60] flex flex-col pt-12 px-8 overflow-y-auto">
+      <button onclick="closeMobile()" class="mobile-close-btn p-4 text-forest interactable"><i data-lucide="x" class="w-10 h-10"></i></button>
+      <nav class="flex flex-col gap-8 text-center mt-12">
+        <a href="#" onclick="event.preventDefault(); navigate('home'); closeMobile()" class="text-4xl transition-colors text-forest uppercase" style="font-family:'Playfair Display',serif;" data-t="nav_home">ΑΡΧΙΚΗ</a>
+        <a href="#" onclick="event.preventDefault(); navigate('ypiresies'); closeMobile()" class="text-4xl transition-colors text-forest uppercase" style="font-family:'Playfair Display',serif;" data-t="nav_services">ΥΠΗΡΕΣΙΕΣ</a>
+        <a href="#" onclick="event.preventDefault(); navigate('psychologoi'); closeMobile()" class="text-4xl transition-colors text-forest uppercase" style="font-family:'Playfair Display',serif;" data-t="nav_team">Η ΟΜΑΔΑ ΜΑΣ</a>
+        <a href="#" onclick="event.preventDefault(); navigate('to-kentro'); closeMobile()" class="text-4xl transition-colors text-forest uppercase" style="font-family:'Playfair Display',serif;" data-t="nav_center">ΤΟ ΚΕΝΤΡΟ</a>
+        <a href="#" onclick="event.preventDefault(); navigate('epikoinonia'); closeMobile()" class="text-4xl transition-colors text-forest uppercase" style="font-family:'Playfair Display',serif;" data-t="nav_contact">ΕΠΙΚΟΙΝΩΝΙΑ</a>
+        <a href="#" onclick="event.preventDefault(); navigate('epikoinonia'); closeMobile()" class="mt-8 px-8 py-5 bg-forest text-cream text-center font-bold rounded-full tracking-widest text-lg uppercase z-10 relative" data-t="btn_book">ΚΛΕΙΣΤΕ ΣΥΝΕΔΡΙΑ</a>
+      </nav>
+    </div>
+  </header>
+
+  <div id="page-home" class="page active">
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-forest-deep">
+      <div class="marquee-container top-1/4">
+        <div class="marquee-content" data-t="marquee_hero">ΨΥΧΙΚΗ ΥΓΕΙΑ — ΕΝΣΥΝΑΙΣΘΗΣΗ — ΑΝΑΠΤΥΞΗ — ΨΥΧΟΘΕΡΑΠΕΙΑ — ΨΥΧΙΚΗ ΥΓΕΙΑ — ΕΝΣΥΝΑΙΣΘΗΣΗ — ΑΝΑΠΤΥΞΗ — ΨΥΧΟΘΕΡΑΠΕΙΑ — </div>
+      </div>
+      
+      <div class="absolute inset-0 img-reveal visible" style="clip-path: inset(0 0 0 0);">
+        <img src="https://github.com/agelmet/Image-hosting-/blob/main/2026-02-16-10.jpg?raw=true" fetchpriority="high" alt="Ψ-PSY Κέντρο Είσοδος" class="w-full h-full object-cover sm:object-center object-[70%] scale-100 transition-transform duration-[20s] hover:scale-105" loading="eager" />
+      </div>
+      
+      <div class="orb w-[500px] h-[500px] bg-sage top-10 -left-40" style="animation-delay:0s;"></div>
+      <div class="orb w-[400px] h-[400px] bg-sage/80 bottom-0 right-0" style="animation-delay:3s;"></div>
+      <div class="absolute inset-0 bg-hero-overlay backdrop-blur-[1px]"></div>
+      
+      <div class="relative z-10 max-w-6xl mx-auto px-6 text-center pt-20">
+        <div class="reveal">
+          <div class="flex items-center justify-center gap-6 mb-12">
+            <div class="h-px w-16 bg-gradient-to-r from-transparent to-sage/80"></div>
+            <span class="inline-flex items-center gap-3 px-6 py-2.5 rounded-full border border-sage/40 bg-sage/10 text-sage-light text-xs font-bold tracking-widest uppercase backdrop-blur-md" data-t="hero_badge">
+              <span class="w-2 h-2 rounded-full bg-sage inline-block animate-pulse"></span>
+              Ψ-PSY ΙΝΣΤΙΤΟΥΤΟ
+            </span>
+            <div class="h-px w-16 bg-gradient-to-l from-transparent to-sage/80"></div>
+          </div>
+          
+          <h1 class="text-5xl md:text-7xl lg:text-[5.5rem] font-bold text-white leading-[1.1] mb-10" style="font-family:'Playfair Display',serif; letter-spacing:-0.02em;">
+            <span class="text-mask"><span data-t="hero_h1_1">Πλοηγηθείτε στις Μεταβάσεις</span></span><br/>
+            <span class="text-mask" style="transition-delay: 0.1s;"><span data-t="hero_h1_2">της Ζωής με <span class="italic text-sage-light font-light">Διαύγεια</span></span></span><br/>
+            <span class="text-mask" style="transition-delay: 0.2s;"><span data-t="hero_h1_3">και Υποστήριξη.</span></span>
+          </h1>
+          
+          <p class="text-lg md:text-xl text-white/70 max-w-3xl mx-auto mb-16 leading-relaxed font-body font-light" data-t="hero_p">
+            Ένας ασφαλής, διεπιστημονικός χώρος αφιερωμένος στην ψυχική σας υγεία, την προσωπική σας ανάπτυξη και την ενίσχυση της ψυχολογικής σας ανθεκτικότητας.
+          </p>
+          
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-6 relative z-20">
+            <a href="#" onclick="event.preventDefault(); navigate('epikoinonia')" class="interactable px-12 py-5 bg-sage text-forest font-bold rounded-full text-sm tracking-widest uppercase transition-all duration-500 shadow-[0_0_40px_rgba(122,136,115,0.3)] hover:shadow-[0_0_60px_rgba(122,136,115,0.5)] magnetic-btn magnetic-target" data-snap="true" data-t="btn_book">ΚΛΕΙΣΤΕ ΣΥΝΕΔΡΙΑ</a>
+            <a href="#about-section" class="interactable px-12 py-5 border border-white/20 text-white rounded-full hover:bg-white/10 transition-all duration-500 font-bold text-sm tracking-widest uppercase magnetic-btn magnetic-target flex items-center gap-3" data-t="btn_more">ΜΑΘΕΤΕ ΠΕΡΙΣΣΟΤΕΡΑ <i data-lucide="arrow-down" class="w-4 h-4"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 animate-float">
+        <span class="text-white/40 text-[10px] tracking-[0.4em] font-bold uppercase">SCROLL</span>
+        <div class="w-px h-12 bg-gradient-to-b from-white/60 to-transparent"></div>
+      </div>
+    </section>
+
+    <section id="about-section" class="py-32 lg:py-48 bg-cream relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div class="reveal-left relative z-10">
+            <div class="flex items-center gap-4 mb-8">
+              <div class="w-10 h-10 rounded-full bg-sage/15 flex items-center justify-center border border-sage/20"><div class="w-2.5 h-2.5 rounded-full bg-sage"></div></div>
+              <span class="text-sage text-xs font-bold tracking-[0.2em] uppercase" data-t="nav_center">ΤΟ ΚΕΝΤΡΟ</span>
+            </div>
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-forest leading-tight mb-10" style="font-family:'Playfair Display',serif;" data-t="about_h2">
+              Καλώς ήρθατε στο<br/><span class="italic text-sage">Ψ-PSY.</span>
+            </h2>
+            <div class="pl-6 border-l-2 border-sage/30 mb-10">
+              <p class="text-forest/70 leading-relaxed text-lg font-body mb-6" data-t="about_p1">
+                Καλώς ήρθατε στο Ινστιτούτο Ψυχικής Υγείας και Ψυχοθεραπείας (Ψ-PSY). Είμαστε μια ομάδα αφοσιωμένων επαγγελματιών ψυχικής υγείας, ψυχοθεραπευτών και εκπαιδευτικών, προσηλωμένοι στην παροχή επιστημονικά τεκμηριωμένης και βαθιά ανθρωποκεντρικής φροντίδας.
+              </p>
+              <p class="text-forest/70 leading-relaxed text-lg font-body" data-t="about_p2">
+                Είτε αναζητάτε ατομική υποστήριξη, καθοδήγηση για τη σχέση σας, είτε επαγγελματική συμβουλευτική, το κέντρο μας προσφέρει ένα ασφαλές περιβάλλον όπου η εμπειρία σας μπορεί να ακουστεί και να κατανοηθεί με σεβασμό.
+              </p>
+            </div>
+            <a href="#" onclick="event.preventDefault(); navigate('to-kentro')" class="interactable hover-link inline-flex items-center gap-3 text-forest font-bold text-xs tracking-widest uppercase transition-all duration-500 magnetic-target relative z-20" data-t="btn_more_exact">
+              ΠΕΡΙΣΣΟΤΕΡΑ <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+          
+          <div class="reveal-right">
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl h-[550px] group image-shine interactable cursor-pointer" onclick="openLightbox('https://github.com/agelmet/MOUXALOS/blob/main/2026-02-16.jpg?raw=true')">
+               <div class="absolute inset-0 bg-sage/10 mix-blend-multiply z-10 transition-opacity duration-700 group-hover:opacity-0"></div>
+               <img src="https://github.com/agelmet/MOUXALOS/blob/main/2026-02-16.jpg?raw=true" alt="Ψ-PSY Κέντρο Εσωτερικό" class="w-full h-full object-cover transform scale-110 group-hover:scale-100 transition-transform duration-[2s] ease-out" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-32 lg:py-48 bg-cream-dark relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-24 reveal">
+            <div>
+              <div class="elegant-divider mb-8 !ml-0 !max-w-[150px]">
+                <div class="line"></div><div class="dot"></div><div class="line"></div>
+              </div>
+              <span class="text-sage text-xs font-bold tracking-[0.2em] uppercase mb-4 block" data-t="services_badge">ΠΡΟΣΕΓΓΙΣΗ</span>
+              <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-forest" style="font-family:'Playfair Display',serif;" data-t="nav_services">
+                Οι Υπηρεσίες μας
+              </h2>
+            </div>
+            <a href="#" onclick="event.preventDefault(); navigate('ypiresies')" class="interactable hover-link mt-8 md:mt-0 inline-flex items-center gap-3 text-forest hover:text-sage transition-colors text-xs uppercase tracking-[0.2em] font-bold magnetic-target z-20 relative" data-t="btn_all_services">
+              ΟΛΕΣ ΟΙ ΥΠΗΡΕΣΙΕΣ <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 stagger" id="servicesGrid">
+            <div class="lg:col-span-6 bento-card interactable magnetic-target" data-snap="false" onclick="event.preventDefault(); navigate('service-atomiki')">
+              <div class="bento-content p-10 group cursor-pointer h-full">
+                <div class="service-icon mb-8 transition-transform duration-500 group-hover:scale-110 group-hover:bg-sage group-hover:text-cream"><i data-lucide="user" class="w-8 h-8"></i></div>
+                <h3 class="text-2xl font-bold text-forest mb-5" style="font-family:'Playfair Display',serif;" data-t="service_1_title">Ατομική Ψυχοθεραπεία</h3>
+                <div class="text-forest/70 leading-relaxed font-body text-base flex-grow space-y-4 mb-10">
+                  <p data-t="service_1_p1">Η ατομική ψυχοθεραπεία είναι ένα από τα πιο ουσιαστικά δώρα που μπορείτε να κάνετε στον εαυτό σας. Πρόκειται για ένα συνεργατικό, προσωπικό ταξίδι...</p>
+                </div>
+                <div class="h-px w-full bg-sage/10 mb-6"></div>
+                <span class="inline-flex items-center gap-3 text-sage font-bold text-xs tracking-widest uppercase group-hover:gap-5 transition-all font-body mt-auto relative z-20" data-t="btn_more_exact">ΜΑΘΕΤΕ ΠΕΡΙΣΣΟΤΕΡΑ <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-2"></i></span>
+              </div>
+            </div>
+            <div class="lg:col-span-6 bento-card interactable magnetic-target" data-snap="false" onclick="event.preventDefault(); navigate('service-omadiki')">
+                <div class="bento-content p-10 group cursor-pointer h-full">
+                  <div class="service-icon mb-8 transition-transform duration-500 group-hover:scale-110 group-hover:bg-sage group-hover:text-cream"><i data-lucide="users" class="w-8 h-8"></i></div>
+                  <h3 class="text-2xl font-bold text-forest mb-5" style="font-family:'Playfair Display',serif;" data-t="service_2_title">Ομαδική Ψυχοθεραπεία</h3>
+                  <div class="text-forest/70 leading-relaxed font-body text-base flex-grow space-y-4 mb-10">
+                    <p data-t="service_2_p1">Η ομαδική ψυχοθεραπεία προσφέρει έναν ασφαλή χώρο όπου μπορείτε να συνδεθείτε με ανθρώπους που μοιράζονται παρόμοιες εμπειρίες...</p>
+                  </div>
+                  <div class="h-px w-full bg-sage/10 mb-6"></div>
+                  <span class="inline-flex items-center gap-3 text-sage font-bold text-xs tracking-widest uppercase group-hover:gap-5 transition-all font-body mt-auto relative z-20" data-t="btn_more_exact">ΜΑΘΕΤΕ ΠΕΡΙΣΣΟΤΕΡΑ <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-2"></i></span>
+                </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <section class="py-32 lg:py-48 bg-cream relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-24 reveal">
+            <div>
+              <div class="elegant-divider mb-8 !ml-0 !max-w-[150px]">
+                <div class="line"></div><div class="dot"></div><div class="line"></div>
+              </div>
+              <span class="text-sage text-xs font-bold tracking-[0.2em] uppercase mb-4 block" data-t="nav_team">Η ΟΜΑΔΑ ΜΑΣ</span>
+              <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-forest" style="font-family:'Playfair Display',serif;" data-t="team_h2">
+                Η Ομάδα μας
+              </h2>
+            </div>
+            <a href="#" onclick="event.preventDefault(); navigate('psychologoi')" class="interactable hover-link mt-8 md:mt-0 inline-flex items-center gap-3 text-forest hover:text-sage transition-colors text-xs tracking-[0.2em] uppercase font-bold magnetic-target z-20 relative" data-t="btn_all_team">
+              ΟΛΗ Η ΟΜΑΔΑ <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 stagger" id="teamGrid">
+            <div class="tilt-card interactable magnetic-target relative z-10" onclick="navigate('psych-mouchalos')">
+              <div class="tilt-card-inner bg-white rounded-3xl p-4 shadow-[0_10px_30px_rgba(21,52,48,0.03)] border border-sage/10 h-full group">
+                <div class="overflow-hidden rounded-2xl mb-6"><img src="https://github.com/agelmet/Image-hosting-/blob/main/%CE%9C%CE%BF%CF%85%CF%87%CE%B1%CE%BB%CE%BF%CF%82.jpg?raw=true" alt="Konstantinos" class="team-img" loading="lazy" /></div>
+                <div class="px-4 pb-4 card-content-3d flex flex-col h-[180px]">
+                  <h3 class="text-xl font-bold text-forest mb-2">Κωνσταντίνος Δ. Μούχαλος</h3>
+                  <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-4 border-b border-sage/10 pb-4">ΙΔΡΥΤΗΣ & ΔΙΕΥΘΥΝΤΗΣ Ψ-PSY</p>
+                  <span class="mt-auto inline-flex items-center gap-2 text-forest font-bold text-xs uppercase tracking-widest group-hover:text-sage" data-t="btn_bio">ΠΛΗΡΕΣ ΒΙΟΓΡΑΦΙΚΟ <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tilt-card interactable magnetic-target relative z-10" onclick="navigate('psych-tsiorou')">
+                <div class="tilt-card-inner bg-white rounded-3xl p-4 shadow-[0_10px_30px_rgba(21,52,48,0.03)] border border-sage/10 h-full group">
+                  <div class="glare"></div>
+                  <div class="overflow-hidden rounded-2xl mb-6"><img src="https://github.com/agelmet/MOUXALOS/blob/main/%CE%A6%CF%89%CF%84%CF%8C%20%CE%A4%CF%83%CE%B9%CF%8E%CF%81%CE%BF%CF%85.jpg?raw=true" alt="Stavroula" class="team-img" loading="lazy" /></div>
+                  <div class="px-4 pb-4 card-content-3d flex flex-col h-[180px]">
+                    <h3 class="text-xl font-bold text-forest mb-2">Σταυρούλα Τσιώρου</h3>
+                    <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-4 border-b border-sage/10 pb-4">ΨΥΧΟΛΟΓΟΣ & ΟΙΚΟΓΕΝΕΙΑΚΗ ΘΕΡΑΠΕΥΤΡΙΑ</p>
+                    <span class="mt-auto inline-flex items-center gap-2 text-forest font-bold text-xs uppercase tracking-widest group-hover:text-sage" data-t="btn_bio">ΠΛΗΡΕΣ ΒΙΟΓΡΑΦΙΚΟ <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+                  </div>
+                </div>
+            </div>
+
+            <div class="tilt-card interactable magnetic-target relative z-10 lg:col-start-2" onclick="navigate('psych-sitareniou')">
+              <div class="tilt-card-inner bg-white rounded-3xl p-4 shadow-[0_10px_30px_rgba(21,52,48,0.03)] border border-sage/10 h-full group">
+                <div class="glare"></div>
+                <div class="overflow-hidden rounded-2xl mb-6"><img src="https://github.com/agelmet/MOUXALOS/blob/main/%CE%A3%CE%B9%CF%84%CE%B1%CF%81%CE%AD%CE%BD%CE%B9%CE%BF%CF%85_%CE%9C%CE%B1%CF%81%CE%AF%CE%BD%CE%B1_Exports_DSC02191_108.jpg?raw=true" alt="Marina" class="team-img" loading="lazy" /></div>
+                <div class="px-4 pb-4 card-content-3d flex flex-col h-[180px]">
+                  <h3 class="text-xl font-bold text-forest mb-2">Μαρίνα Σιταρένιου</h3>
+                  <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-4 border-b border-sage/10 pb-4">ΨΥΧΟΛΟΓΟΣ & ΕΙΔΙΚΕΥΟΜΕΝΗ ΨΥΧΟΘΕΡΑΠΕΥΤΡΙΑ</p>
+                  <span class="mt-auto inline-flex items-center gap-2 text-forest font-bold text-xs uppercase tracking-widest group-hover:text-sage" data-t="btn_bio">ΠΛΗΡΕΣ ΒΙΟΓΡΑΦΙΚΟ <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+  </div>
+
+  <div id="page-epikoinonia" class="page">
+    <section class="pt-48 pb-24 bg-forest-deep relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
+        <span class="text-sage text-xs font-bold tracking-[0.2em] uppercase mb-6 block" data-t="contact_badge">ΑΣ ΜΙΛΗΣΟΥΜΕ</span>
+        <h1 class="text-5xl md:text-6xl lg:text-8xl font-bold text-white mb-8" style="font-family:'Playfair Display',serif;" data-t="nav_contact">Επικοινωνία</h1>
+      </div>
+    </section>
+  </div>
+
+  <footer class="bg-forest text-cream py-32">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <p class="text-[10px] tracking-widest uppercase opacity-50" data-t="footer_copy">© 2026 Ψ-PSY ΙΝΣΤΙΤΟΥΤΟ ΨΥΧΙΚΗΣ ΥΓΕΙΑΣ ΚΑΙ ΨΥΧΟΘΕΡΑΠΕΙΑΣ. ΜΕ ΕΠΙΦΥΛΑΞΗ ΠΑΝΤΟΣ ΔΙΚΑΙΩΜΑΤΟΣ.</p>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    /* --- Translation System Implementation --- */
+    const translations = {
+      el: {
+        nav_home: "ΑΡΧΙΚΗ",
+        nav_services: "ΥΠΗΡΕΣΙΕΣ",
+        nav_team: "Η ΟΜΑΔΑ ΜΑΣ",
+        nav_center: "ΤΟ ΚΕΝΤΡΟ",
+        nav_contact: "ΕΠΙΚΟΙΝΩΝΙΑ",
+        btn_book: "ΚΛΕΙΣΤΕ ΣΥΝΕΔΡΙΑ",
+        btn_more: "ΜΑΘΕΤΕ ΠΕΡΙΣΣΟΤΕΡΑ",
+        btn_more_exact: "ΠΕΡΙΣΣΟΤΕΡΑ",
+        hero_badge: "Ψ-PSY ΙΝΣΤΙΤΟΥΤΟ",
+        hero_h1_1: "Πλοηγηθείτε στις Μεταβάσεις",
+        hero_h1_2: "της Ζωής με Διαύγεια",
+        hero_h1_3: "και Υποστήριξη.",
+        hero_p: "Ένας ασφαλής, διεπιστημονικός χώρος αφιερωμένος στην ψυχική σας υγεία...",
+        marquee_hero: "ΨΥΧΙΚΗ ΥΓΕΙΑ — ΕΝΣΥΝΑΙΣΘΗΣΗ — ΑΝΑΠΤΥΞΗ — ΨΥΧΟΘΕΡΑΠΕΙΑ — ",
+        about_h2: "Καλώς ήρθατε στο Ψ-PSY.",
+        about_p1: "Είμαστε μια ομάδα αφοσιωμένων επαγγελματιών ψυχικής υγείας...",
+        about_p2: "Είτε αναζητάτε ατομική υποστήριξη, καθοδήγηση για τη σχέση σας...",
+        services_badge: "ΠΡΟΣΕΓΓΙΣΗ",
+        btn_all_services: "ΟΛΕΣ ΟΙ ΥΠΗΡΕΣΙΕΣ",
+        service_1_title: "Ατομική Ψυχοθεραπεία",
+        service_1_p1: "Η ατομική ψυχοθεραπεία είναι ένα από τα πιο ουσιαστικά δώρα...",
+        service_2_title: "Ομαδική Ψυχοθεραπεία",
+        service_2_p1: "Η ομαδική ψυχοθεραπεία προσφέρει έναν ασφαλή χώρο...",
+        team_h2: "Η Ομάδα μας",
+        btn_all_team: "ΟΛΗ Η ΟΜΑΔΑ",
+        btn_bio: "ΠΛΗΡΕΣ ΒΙΟΓΡΑΦΙΚΟ",
+        contact_badge: "ΑΣ ΜΙΛΗΣΟΥΜΕ",
+        footer_copy: "© 2026 Ψ-PSY ΙΝΣΤΙΤΟΥΤΟ ΨΥΧΙΚΗΣ ΥΓΕΙΑΣ ΚΑΙ ΨΥΧΟΘΕΡΑΠΕΙΑΣ. ΜΕ ΕΠΙΦΥΛΑΞΗ ΠΑΝΤΟΣ ΔΙΚΑΙΩΜΑΤΟΣ."
+      },
+      en: {
+        nav_home: "HOME",
+        nav_services: "SERVICES",
+        nav_team: "OUR TEAM",
+        nav_center: "THE CENTER",
+        nav_contact: "CONTACT",
+        btn_book: "BOOK A SESSION",
+        btn_more: "LEARN MORE",
+        btn_more_exact: "READ MORE",
+        hero_badge: "Ψ-PSY INSTITUTE",
+        hero_h1_1: "Navigate Life's",
+        hero_h1_2: "Transitions with Clarity",
+        hero_h1_3: "and Support.",
+        hero_p: "A safe, multidisciplinary space dedicated to your mental health, personal growth, and psychological resilience.",
+        marquee_hero: "MENTAL HEALTH — EMPATHY — GROWTH — PSYCHOTHERAPY — ",
+        about_h2: "Welcome to Ψ-PSY.",
+        about_p1: "We are a team of dedicated mental health professionals, psychotherapists, and educators, committed to providing evidence-based and human-centered care.",
+        about_p2: "Whether you seek individual support, relationship guidance, or professional counseling, our center offers a safe environment where your experience is heard.",
+        services_badge: "APPROACH",
+        btn_all_services: "VIEW ALL SERVICES",
+        service_1_title: "Individual Therapy",
+        service_1_p1: "Individual psychotherapy is one of the most meaningful gifts you can give yourself. It is a collaborative, personal journey...",
+        service_2_title: "Group Therapy",
+        service_2_p1: "Group psychotherapy offers a safe space where you can connect with people sharing similar experiences...",
+        team_h2: "Our Team",
+        btn_all_team: "VIEW ALL TEAM",
+        btn_bio: "FULL BIOGRAPHY",
+        contact_badge: "LET'S TALK",
+        footer_copy: "© 2026 Ψ-PSY MENTAL HEALTH & PSYCHOTHERAPY INSTITUTE. ALL RIGHTS RESERVED."
+      }
+    };
+
+    let currentLang = 'el';
+    function toggleLanguage() {
+      currentLang = currentLang === 'el' ? 'en' : 'el';
+      document.getElementById('langToggle').textContent = currentLang === 'el' ? 'EN' : 'EL';
+      document.documentElement.lang = currentLang;
+      
+      document.querySelectorAll('[data-t]').forEach(el => {
+        const key = el.getAttribute('data-t');
+        if (translations[currentLang][key]) {
+          el.textContent = translations[currentLang][key];
+        }
+      });
+    }
+
+    /* --- Advanced Custom Cursor --- */
+    const cursorDot = document.getElementById('cursorDot');
+    const cursorRing = document.getElementById('cursorRing');
+    let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+    let ringX = mouseX, ringY = mouseY;
+    let isHovering = false;
+
+    if (window.matchMedia("(pointer: fine)").matches) {
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX; mouseY = e.clientY;
+        if(!isHovering) {
+            cursorDot.style.left = `${mouseX}px`;
+            cursorDot.style.top = `${mouseY}px`;
+        }
+      });
+      const render = () => {
+        if(!isHovering) {
+            ringX += (mouseX - ringX) * 0.15;
+            ringY += (mouseY - ringY) * 0.15;
+            cursorRing.style.left = `${ringX}px`;
+            cursorRing.style.top = `${ringY}px`;
+            cursorRing.style.width = `40px`;
+            cursorRing.style.height = `40px`;
+            cursorRing.style.borderRadius = `50%`;
+        }
+        requestAnimationFrame(render);
+      }
+      render();
+      document.querySelectorAll('.interactable, .magnetic-target').forEach(el => {
+        el.addEventListener('mouseenter', () => { isHovering = true; document.body.classList.add('cursor-snap'); });
+        el.addEventListener('mouseleave', () => { isHovering = false; document.body.classList.remove('cursor-snap'); });
+      });
+    }
+
+    /* --- Navigation Logic --- */
+    let currentPage = 'home';
+    const pageWipe = document.getElementById('pageWipe');
+    function navigate(page) {
+      if (currentPage === page) return;
+      pageWipe.classList.remove('wipe-out');
+      pageWipe.classList.add('wipe-in');
+      setTimeout(() => {
+          document.getElementById('page-' + currentPage).classList.remove('active');
+          document.getElementById('page-' + page).classList.add('active');
+          currentPage = page;
+          window.scrollTo(0, 0);
+          updateNavState();
+          setTimeout(() => {
+              pageWipe.classList.remove('wipe-in');
+              pageWipe.classList.add('wipe-out');
+          }, 50);
+      }, 800);
+    }
+
+    function updateNavState() {
+      const isHome = currentPage === 'home';
+      const scrolled = window.scrollY > 50;
+      const navbar = document.getElementById('navbar');
+      const navTitle = document.getElementById('navTitle');
+      const langToggle = document.getElementById('langToggle');
+      
+      if (!isHome || scrolled) {
+        navbar.classList.add('nav-blur', 'py-4', 'shadow-sm');
+        navbar.style.backgroundColor = 'rgba(255,248,241,0.95)';
+        navTitle.classList.replace('text-white', 'text-forest');
+        langToggle.classList.replace('text-white', 'text-forest');
+        document.getElementById('mobileToggle').classList.replace('text-white', 'text-forest');
+      } else {
+        navbar.classList.remove('nav-blur', 'py-4', 'shadow-sm');
+        navbar.style.backgroundColor = 'transparent';
+        navTitle.classList.replace('text-forest', 'text-white');
+        langToggle.classList.replace('text-forest', 'text-white');
+        document.getElementById('mobileToggle').classList.replace('text-forest', 'text-white');
+      }
+    }
+
+    window.addEventListener('scroll', updateNavState);
+    
+    function toggleMobileMenu() { 
+      document.getElementById('mobileMenu').classList.toggle('hidden'); 
+      document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('hidden') ? '' : 'hidden';
+    }
+    function closeMobile() { 
+      document.getElementById('mobileMenu').classList.add('hidden'); 
+      document.body.style.overflow = '';
+    }
+
+    /* --- Scroll Reveals --- */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger').forEach(el => observer.observe(el));
+
+    function openLightbox(src) { document.getElementById('lightboxImg').src = src; document.getElementById('lightbox').classList.add('active'); }
+    function closeLightbox() { document.getElementById('lightbox').classList.remove('active'); }
+  </script>
+</body>
+</html>
