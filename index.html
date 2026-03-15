@@ -72,20 +72,20 @@
     .nav-blur { backdrop-filter: blur(24px) saturate(200%); -webkit-backdrop-filter: blur(24px) saturate(200%); border-bottom: 1px solid rgba(122,136,115,0.1); }
     
     /* Hero section UI reduced opacity for more visibility */
-    .bg-hero-overlay { background: linear-gradient(180deg, rgba(21,52,48,0.3) 0%, rgba(24,56,51,0.5) 50%, rgba(21,52,48,0.85) 100%); }
+    .bg-hero-overlay { background: linear-gradient(180deg, rgba(21,52,48,0.12) 0%, rgba(24,56,51,0.25) 50%, rgba(21,52,48,0.55) 100%); }
+    @media (max-width: 768px) {
+      .bg-hero-overlay { background: linear-gradient(180deg, rgba(21,52,48,0.1) 0%, rgba(24,56,51,0.2) 40%, rgba(21,52,48,0.6) 100%); }
+    }
 
-    /* Infinite Marquee */
-    .marquee-container { position: absolute; white-space: nowrap; overflow: hidden; opacity: 0.03; font-family: 'Playfair Display', serif; font-size: clamp(5rem, 15vw, 15rem); font-weight: 800; color: #fff; line-height: 1; pointer-events: none; z-index: 0; }
-    .marquee-content { display: inline-block; animation: marquee 40s linear infinite; }
-    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
 
     /* Bento Grid Glow Cards */
-    .bento-card { position: relative; overflow: hidden; background: #fff; border-radius: 2rem; border: 1px solid rgba(122,136,115,0.15); transition: transform 0.5s var(--ease-out-expo), box-shadow 0.5s var(--ease-out-expo); display: flex; flex-direction: column; cursor: pointer; }
+    .bento-card { position: relative; overflow: hidden; background: #fff; border-radius: 2rem; border: 1px solid rgba(122,136,115,0.15); transition: transform 0.5s var(--ease-out-expo), box-shadow 0.5s var(--ease-out-expo); display: flex; flex-direction: column; }
     .bento-card:hover { transform: translateY(-8px) scale(1.01); box-shadow: 0 40px 80px -20px rgba(21,52,48,0.15); border-color: rgba(122,136,115,0.4); z-index: 10; }
     .bento-content { position: relative; z-index: 1; display: flex; flex-direction: column; height: 100%; }
 
     /* 3D Glassmorphism Cards for Team */
-    .tilt-card { perspective: 1200px; transform-style: preserve-3d; height: 100%; cursor: pointer; }
+    .tilt-card { perspective: 1200px; transform-style: preserve-3d; height: 100%; }
     .tilt-card-inner { position: relative; height: 100%; transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo); transform: translateZ(0); will-change: transform; overflow: hidden; }
     .tilt-card:hover .tilt-card-inner { box-shadow: 0 40px 80px -20px rgba(21,52,48,0.25); }
     .glare { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.3) 0%, transparent 60%); opacity: 0; transition: opacity 0.4s; mix-blend-mode: overlay; z-index: 10; transform: translateZ(1px); }
@@ -108,12 +108,13 @@
 
     @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
     .animate-float { animation: float 6s ease-in-out infinite; }
+    @keyframes rotate-slow { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
     .orb { position: absolute; border-radius: 50%; filter: blur(120px); pointer-events: none; mix-blend-mode: screen; }
 
-    .lightbox { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(15,35,32,0.98); align-items: center; justify-content: center; backdrop-filter: blur(20px); opacity: 0; transition: opacity 0.5s; cursor: pointer;}
+    .lightbox { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(15,35,32,0.98); align-items: center; justify-content: center; backdrop-filter: blur(20px); opacity: 0; transition: opacity 0.5s; }
     .lightbox.active { display: flex; opacity: 1; }
-    .lightbox img { max-width: 85vw; max-height: 85vh; border-radius: 8px; box-shadow: 0 40px 100px rgba(0,0,0,0.6); transform: scale(0.9); transition: transform 0.8s var(--ease-out-expo); cursor: default;}
+    .lightbox img { max-width: 85vw; max-height: 85vh; border-radius: 8px; box-shadow: 0 40px 100px rgba(0,0,0,0.6); transform: scale(0.9); transition: transform 0.8s var(--ease-out-expo); }
     .lightbox.active img { transform: scale(1); }
 
     .stagger > * { opacity: 0; transform: translateY(40px); clip-path: inset(10% 0 0 0); }
@@ -127,7 +128,7 @@
     .counter-value { font-variant-numeric: tabular-nums; }
 
     .service-icon { width: 64px; height: 64px; border-radius: 18px; background: linear-gradient(135deg, rgba(122,136,115,0.1), rgba(143,158,136,0.2)); display: flex; align-items: center; justify-content: center; color: #7a8873; flex-shrink: 0; box-shadow: inset 0 0 0 1px rgba(122,136,115,0.2); transition: all 0.5s var(--ease-out-expo); }
-    .bento-card:hover .service-icon, .tilt-card:hover .service-icon, a:hover .service-icon { background: linear-gradient(135deg, #7a8873, #8f9e88); color: #fff8f1; transform: scale(1.1); box-shadow: 0 15px 30px rgba(122,136,115,0.3); }
+    .bento-card:hover .service-icon, .tilt-card:hover .service-icon { background: linear-gradient(135deg, #7a8873, #8f9e88); color: #fff8f1; transform: scale(1.1); box-shadow: 0 15px 30px rgba(122,136,115,0.3); }
 
     .team-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 16px; filter: grayscale(50%) contrast(1.1); transition: filter 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo); }
     .tilt-card:hover .team-img { filter: grayscale(0%) contrast(1.05); transform: scale(1.06); }
@@ -161,7 +162,7 @@
     /* Clamp text for symmetrical Bento Grid */
     .line-clamp-4 { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
 
-    /* Google Translate Hidden Styles to prevent UI corruption */
+    /* Language Toggle Localization Integration hiding standard Google bar */
     body > .skiptranslate { display: none !important; }
     .goog-te-banner-frame.skiptranslate { display: none !important; }
     .goog-tooltip { display: none !important; }
@@ -172,7 +173,7 @@
 </head>
 <body class="grain">
 
-  <div id="google_translate_element" style="position: absolute; top: -9999px; left: -9999px; width: 0; height: 0; overflow: hidden; z-index: -9999;"></div>
+  <div id="google_translate_element" style="display:none;"></div>
 
   <div id="pageWipe"></div>
 
@@ -183,7 +184,7 @@
 
   <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-700 py-6 bg-transparent">
     <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
-      <a href="#" onclick="event.preventDefault(); navigate('home')" class="flex items-center gap-4 group">
+      <a href="/" onclick="event.preventDefault(); navigate('home')" class="flex items-center gap-4 group">
         <img id="navLogoImg" src="https://github.com/agelmet/Image-hosting-/blob/main/597891457_1432943218836853_7585099840606536804_n.jpg?raw=true" alt="Ψ-PSY Logo" class="nav-logo-img" />
         <span id="navTitle" class="text-xl font-semibold tracking-widest transition-colors duration-500 text-white uppercase" style="font-family:'Playfair Display',serif;">Ψ-PSY</span>
       </a>
@@ -194,43 +195,40 @@
         <a href="#" onclick="event.preventDefault(); navigate('psychologoi')" class="nav-link hover-link text-xs tracking-widest font-semibold transition-colors duration-300 text-white/80 hover:text-white uppercase" data-page="psychologoi">Η ΟΜΑΔΑ ΜΑΣ</a>
         <a href="#" onclick="event.preventDefault(); navigate('to-kentro')" class="nav-link hover-link text-xs tracking-widest font-semibold transition-colors duration-300 text-white/80 hover:text-white uppercase" data-page="to-kentro">ΤΟ ΚΕΝΤΡΟ</a>
         <a href="#" onclick="event.preventDefault(); navigate('epikoinonia')" class="nav-link hover-link text-xs tracking-widest font-semibold transition-colors duration-300 text-white/80 hover:text-white uppercase" data-page="epikoinonia">ΕΠΙΚΟΙΝΩΝΙΑ</a>
-        <button id="langToggleBtnDesktop" onclick="toggleLanguage()" class="notranslate nav-link hover-link text-white/80 hover:text-white font-bold tracking-widest text-xs transition-colors uppercase">EN</button>
+        <button id="langToggleBtnDesktop" onclick="toggleLanguage()" class="nav-link hover-link text-white/80 hover:text-white font-bold tracking-widest text-xs transition-colors uppercase">EN</button>
         <a href="#" onclick="event.preventDefault(); navigate('epikoinonia')" class="ml-2 px-8 py-3.5 bg-sage border border-transparent text-cream text-xs tracking-widest font-bold rounded-full transition-all duration-500 hover:shadow-lg hover:-translate-y-1 uppercase z-10">
           ΚΛΕΙΣΤΕ ΣΥΝΕΔΡΙΑ
         </a>
       </nav>
 
       <div class="lg:hidden flex items-center gap-4">
-        <button id="langToggleBtnMobile" onclick="toggleLanguage()" class="notranslate text-white font-bold tracking-widest text-sm transition-colors">EN</button>
+        <button id="langToggleBtnMobile" onclick="toggleLanguage()" class="text-white font-bold tracking-widest text-sm transition-colors">EN</button>
         <button id="mobileToggle" onclick="toggleMobileMenu()" class="p-2 text-white" aria-label="Toggle menu">
           <i data-lucide="menu" class="w-8 h-8"></i>
         </button>
       </div>
     </div>
     
-    <div id="mobileMenu" class="lg:hidden hidden fixed inset-0 bg-[#fff8f1] z-[9999] overflow-y-auto">
-      <button onclick="closeMobile()" class="fixed top-6 right-6 p-3 text-forest bg-white shadow-lg rounded-full z-[10000] border border-sage/20">
+    <div id="mobileMenu" class="lg:hidden hidden fixed inset-0 bg-cream z-[9999] flex flex-col pt-32 px-8 overflow-y-auto">
+      <button onclick="closeMobile()" class="fixed top-6 right-6 p-2 text-forest z-[10000] bg-cream rounded-full shadow-md">
         <i data-lucide="x" class="w-8 h-8"></i>
       </button>
-      <div class="flex flex-col gap-8 text-center px-8 pb-16 pt-32 min-h-screen justify-center">
+      <nav class="flex flex-col gap-6 text-center">
         <a href="#" onclick="event.preventDefault(); navigate('home'); closeMobile()" class="text-3xl transition-colors text-forest uppercase" style="font-family:'Playfair Display',serif;">ΑΡΧΙΚΗ</a>
         <a href="#" onclick="event.preventDefault(); navigate('ypiresies'); closeMobile()" class="text-3xl transition-colors text-forest uppercase" style="font-family:'Playfair Display',serif;">ΥΠΗΡΕΣΙΕΣ</a>
         <a href="#" onclick="event.preventDefault(); navigate('psychologoi'); closeMobile()" class="text-3xl transition-colors text-forest uppercase" style="font-family:'Playfair Display',serif;">Η ΟΜΑΔΑ ΜΑΣ</a>
         <a href="#" onclick="event.preventDefault(); navigate('to-kentro'); closeMobile()" class="text-3xl transition-colors text-forest uppercase" style="font-family:'Playfair Display',serif;">ΤΟ ΚΕΝΤΡΟ</a>
         <a href="#" onclick="event.preventDefault(); navigate('epikoinonia'); closeMobile()" class="text-3xl transition-colors text-forest uppercase" style="font-family:'Playfair Display',serif;">ΕΠΙΚΟΙΝΩΝΙΑ</a>
         <a href="#" onclick="event.preventDefault(); navigate('epikoinonia'); closeMobile()" class="mt-8 px-8 py-4 bg-forest text-cream text-center font-bold rounded-full tracking-widest text-sm uppercase z-10 relative">ΚΛΕΙΣΤΕ ΣΥΝΕΔΡΙΑ</a>
-      </div>
+      </nav>
     </div>
   </header>
 
   <div id="page-home" class="page active">
     <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-forest-deep">
-      <div class="marquee-container top-1/4">
-        <div class="marquee-content">ΨΥΧΙΚΗ ΥΓΕΙΑ — ΕΝΣΥΝΑΙΣΘΗΣΗ — ΑΝΑΠΤΥΞΗ — ΨΥΧΟΘΕΡΑΠΕΙΑ — ΨΥΧΙΚΗ ΥΓΕΙΑ — ΕΝΣΥΝΑΙΣΘΗΣΗ — ΑΝΑΠΤΥΞΗ — ΨΥΧΟΘΕΡΑΠΕΙΑ — </div>
-      </div>
       
       <div class="absolute inset-0 img-reveal visible" style="clip-path: inset(0 0 0 0);">
-        <img src="https://github.com/agelmet/Image-hosting-/blob/main/2026-02-16-10.jpg?raw=true" alt="Ψ-PSY Κέντρο Είσοδος" class="w-full h-full object-cover object-center sm:object-top scale-100 transition-transform duration-[20s] hover:scale-105" fetchpriority="high" loading="eager" decoding="async" />
+        <img src="https://github.com/agelmet/Image-hosting-/blob/main/2026-02-16-10.jpg?raw=true" alt="Ψ-PSY Κέντρο Είσοδος" class="w-full h-full object-cover object-[center_30%] sm:object-[center_25%] scale-100 transition-transform duration-[20s] hover:scale-105" fetchpriority="high" loading="eager" />
       </div>
       
       <div class="orb w-[500px] h-[500px] bg-sage top-10 -left-40" style="animation-delay:0s;"></div>
@@ -249,13 +247,12 @@
           </div>
           
           <h1 class="text-5xl md:text-7xl lg:text-[5.5rem] font-bold text-white leading-[1.1] mb-10" style="font-family:'Playfair Display',serif; letter-spacing:-0.02em;">
-            <span class="text-mask"><span>Πλοηγηθείτε στις Μεταβάσεις</span></span><br/>
-            <span class="text-mask" style="transition-delay: 0.1s;"><span>της Ζωής με <span class="italic text-sage-light font-light">Διαύγεια</span></span></span><br/>
-            <span class="text-mask" style="transition-delay: 0.2s;"><span>και Υποστήριξη.</span></span>
+            <span class="text-mask"><span>Η εξέλιξή σας</span></span><br/>
+            <span class="text-mask" style="transition-delay: 0.1s;"><span>ξεκινά <span class="italic text-sage-light font-light">εδώ.</span></span></span>
           </h1>
           
           <p class="text-lg md:text-xl text-white/70 max-w-3xl mx-auto mb-16 leading-relaxed font-body font-light">
-            Ένας ασφαλής, διεπιστημονικός χώρος αφιερωμένος στην ψυχική σας υγεία, την προσωπική σας ανάπτυξη και την ενίσχυση της ψυχολογικής σας ανθεκτικότητας.
+            Μετατρέψτε τις προκλήσεις της ζωής σε αφετηρία για μια νέα ισορροπία. Στο Ψ-PSY, συνδυάζουμε 18 χρόνια εμπειρίας με μια βαθιά ανθρωποκεντρική προσέγγιση για να σας στηρίξουμε σε κάθε σας μετάβαση.
           </p>
           
           <div class="flex flex-col sm:flex-row items-center justify-center gap-6 relative z-20">
@@ -327,7 +324,7 @@
           </div>
           
           <div class="reveal-right">
-            <div class="relative rounded-3xl overflow-hidden shadow-2xl h-[550px] group cursor-pointer" onclick="openLightbox('https://github.com/agelmet/MOUXALOS/blob/main/2026-02-16.jpg?raw=true')">
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl h-[550px] group image-shine cursor-pointer" onclick="openLightbox('https://github.com/agelmet/MOUXALOS/blob/main/2026-02-16.jpg?raw=true')">
                <div class="absolute inset-0 bg-sage/10 mix-blend-multiply z-10 transition-opacity duration-700 group-hover:opacity-0"></div>
                <img src="https://github.com/agelmet/MOUXALOS/blob/main/2026-02-16.jpg?raw=true" alt="Ψ-PSY Κέντρο Εσωτερικό" class="w-full h-full object-cover transform scale-110 group-hover:scale-100 transition-transform duration-[2s] ease-out" />
             </div>
@@ -357,7 +354,7 @@
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 stagger" id="servicesGrid">
           
-          <div class="lg:col-span-6 bento-card" onclick="event.preventDefault(); navigate('service-atomiki')">
+          <div class="lg:col-span-6 bento-card cursor-pointer" onclick="event.preventDefault(); navigate('service-atomiki')">
             <div class="bento-content p-10 group h-full">
               <div class="service-icon mb-8 transition-transform duration-500 group-hover:scale-110 group-hover:bg-sage group-hover:text-cream"><i data-lucide="user" class="w-8 h-8"></i></div>
               <h3 class="text-2xl font-bold text-forest mb-5" style="font-family:'Playfair Display',serif;">Ατομική Ψυχοθεραπεία</h3>
@@ -372,7 +369,7 @@
             </div>
           </div>
           
-          <div class="lg:col-span-6 bento-card" onclick="event.preventDefault(); navigate('service-omadiki')">
+          <div class="lg:col-span-6 bento-card cursor-pointer" onclick="event.preventDefault(); navigate('service-omadiki')">
             <div class="bento-content p-10 group h-full">
               <div class="service-icon mb-8 transition-transform duration-500 group-hover:scale-110 group-hover:bg-sage group-hover:text-cream"><i data-lucide="users" class="w-8 h-8"></i></div>
               <h3 class="text-2xl font-bold text-forest mb-5" style="font-family:'Playfair Display',serif;">Ομαδική Ψυχοθεραπεία</h3>
@@ -387,7 +384,7 @@
             </div>
           </div>
           
-          <div class="lg:col-span-4 bento-card" onclick="event.preventDefault(); navigate('service-zeugous')">
+          <div class="lg:col-span-4 bento-card cursor-pointer" onclick="event.preventDefault(); navigate('service-zeugous')">
             <div class="bento-content p-8 group h-full">
               <div class="service-icon mb-8 transition-transform duration-500 group-hover:scale-110 group-hover:bg-sage group-hover:text-cream"><i data-lucide="heart" class="w-8 h-8"></i></div>
               <h3 class="text-xl font-bold text-forest mb-4" style="font-family:'Playfair Display',serif;">Θεραπεία Ζεύγους</h3>
@@ -401,7 +398,7 @@
             </div>
           </div>
 
-          <div class="lg:col-span-4 bento-card" onclick="event.preventDefault(); navigate('service-oikogeneiaki')">
+          <div class="lg:col-span-4 bento-card cursor-pointer" onclick="event.preventDefault(); navigate('service-oikogeneiaki')">
             <div class="bento-content p-8 group h-full">
               <div class="service-icon mb-8 transition-transform duration-500 group-hover:scale-110 group-hover:bg-sage group-hover:text-cream"><i data-lucide="home" class="w-8 h-8"></i></div>
               <h3 class="text-xl font-bold text-forest mb-4" style="font-family:'Playfair Display',serif;">Οικογενειακή Θεραπεία</h3>
@@ -415,7 +412,7 @@
             </div>
           </div>
 
-          <div class="lg:col-span-4 bento-card" onclick="event.preventDefault(); navigate('service-online')">
+          <div class="lg:col-span-4 bento-card cursor-pointer" onclick="event.preventDefault(); navigate('service-online')">
             <div class="bento-content p-8 group h-full">
               <div class="service-icon mb-8 transition-transform duration-500 group-hover:scale-110 group-hover:bg-sage group-hover:text-cream"><i data-lucide="monitor" class="w-8 h-8"></i></div>
               <h3 class="text-xl font-bold text-forest mb-4" style="font-family:'Playfair Display',serif;">Online Θεραπεία</h3>
@@ -452,142 +449,142 @@
           </a>
         </div>
         
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 stagger" id="teamGrid">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-10 stagger" id="teamGrid">
           
-          <div class="tilt-card relative z-10" onclick="event.preventDefault(); navigate('psych-mouchalos')">
+          <div class="tilt-card cursor-pointer relative z-10" onclick="event.preventDefault(); navigate('psych-mouchalos')">
             <div class="tilt-card-inner bg-white rounded-3xl p-4 shadow-[0_10px_30px_rgba(21,52,48,0.03)] border border-sage/10 h-full group">
               <div class="glare"></div>
               <div class="overflow-hidden rounded-2xl mb-6"><img src="https://github.com/agelmet/Image-hosting-/blob/main/Μουχαλος.jpg?raw=true" alt="Κωνσταντίνος Μούχαλος" class="team-img" loading="lazy" /></div>
-              <div class="px-4 pb-4 card-content-3d flex flex-col h-[180px]">
+              <div class="px-4 pb-4 card-content-3d flex flex-col">
                 <h3 class="text-xl font-bold text-forest mb-2" style="font-family:'Playfair Display',serif;">Κωνσταντίνος Δ. Μούχαλος</h3>
-                <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-4 border-b border-sage/10 pb-4 flex-shrink-0">ΙΔΡΥΤΗΣ & ΔΙΕΥΘΥΝΤΗΣ Ψ-PSY</p>
-                <div class="mt-auto">
+                <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-1 flex-shrink-0">ΙΔΡΥΤΗΣ & ΔΙΕΥΘΥΝΤΗΣ Ψ-PSY</p>
+                <div>
                     <span class="inline-flex items-center gap-2 text-forest font-bold text-xs uppercase tracking-widest group-hover:text-sage transition-colors">ΠΛΗΡΕΣ ΒΙΟΓΡΑΦΙΚΟ <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
                 </div>
               </div>
             </div>
           </div>
           
-          <div class="tilt-card relative z-10" onclick="event.preventDefault(); navigate('psych-misailidis')">
+          <div class="tilt-card cursor-pointer relative z-10" onclick="event.preventDefault(); navigate('psych-misailidis')">
             <div class="tilt-card-inner bg-white rounded-3xl p-4 shadow-[0_10px_30px_rgba(21,52,48,0.03)] border border-sage/10 h-full group">
               <div class="glare"></div>
               <div class="overflow-hidden rounded-2xl mb-6"><img src="https://github.com/agelmet/Image-hosting-/blob/main/GiorgosMisailidis%20.jpeg?raw=true" alt="Γιώργος Μισαηλίδης" class="team-img" loading="lazy" /></div>
-              <div class="px-4 pb-4 card-content-3d flex flex-col h-[180px]">
+              <div class="px-4 pb-4 card-content-3d flex flex-col">
                 <h3 class="text-xl font-bold text-forest mb-2" style="font-family:'Playfair Display',serif;">Γιώργος Μισαηλίδης</h3>
-                <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-4 border-b border-sage/10 pb-4 flex-shrink-0">ΨΥΧΟΘΕΡΑΠΕΥΤΗΣ & ΕΚΠΑΙΔΕΥΤΙΚΟΣ</p>
-                <div class="mt-auto">
+                <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-1 flex-shrink-0">ΨΥΧΟΘΕΡΑΠΕΥΤΗΣ & ΕΚΠΑΙΔΕΥΤΙΚΟΣ</p>
+                <div>
                     <span class="inline-flex items-center gap-2 text-forest font-bold text-xs uppercase tracking-widest group-hover:text-sage transition-colors">ΠΛΗΡΕΣ ΒΙΟΓΡΑΦΙΚΟ <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
                 </div>
               </div>
             </div>
           </div>
           
-          <div class="tilt-card relative z-10" onclick="event.preventDefault(); navigate('psych-mavrea')">
+          <div class="tilt-card cursor-pointer relative z-10" onclick="event.preventDefault(); navigate('psych-mavrea')">
             <div class="tilt-card-inner bg-white rounded-3xl p-4 shadow-[0_10px_30px_rgba(21,52,48,0.03)] border border-sage/10 h-full group">
               <div class="glare"></div>
               <div class="overflow-hidden rounded-2xl mb-6"><img src="https://github.com/agelmet/Image-hosting-/blob/main/ΦΩΤΟ%20ΜΑΥΡΕΑ.jpg?raw=true" alt="Καλλιόπη Μαυρέα" class="team-img" loading="lazy" /></div>
-              <div class="px-4 pb-4 card-content-3d flex flex-col h-[180px]">
+              <div class="px-4 pb-4 card-content-3d flex flex-col">
                 <h3 class="text-xl font-bold text-forest mb-2" style="font-family:'Playfair Display',serif;">Καλλιόπη Μαυρέα, MSc, PhD</h3>
-                <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-4 border-b border-sage/10 pb-4 flex-shrink-0">ΕΚΠΑΙΔΕΥΤΙΚΟΣ ΕΙΔΙΚΗΣ ΑΓΩΓΗΣ</p>
-                <div class="mt-auto">
+                <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-1 flex-shrink-0">ΕΚΠΑΙΔΕΥΤΙΚΟΣ ΕΙΔΙΚΗΣ ΑΓΩΓΗΣ</p>
+                <div>
                     <span class="inline-flex items-center gap-2 text-forest font-bold text-xs uppercase tracking-widest group-hover:text-sage transition-colors">ΠΛΗΡΕΣ ΒΙΟΓΡΑΦΙΚΟ <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
                 </div>
               </div>
             </div>
           </div>
           
-          <div class="tilt-card relative z-10" onclick="event.preventDefault(); navigate('psych-kontraskina')">
+          <div class="tilt-card cursor-pointer relative z-10" onclick="event.preventDefault(); navigate('psych-kontraskina')">
             <div class="tilt-card-inner bg-white rounded-3xl p-4 shadow-[0_10px_30px_rgba(21,52,48,0.03)] border border-sage/10 h-full group">
               <div class="glare"></div>
               <div class="overflow-hidden rounded-2xl mb-6"><img src="https://github.com/agelmet/Image-hosting-/blob/main/Olga%20Kontraskina.jpg?raw=true" alt="Όλγα Κοντράσκινα" class="team-img" loading="lazy" /></div>
-              <div class="px-4 pb-4 card-content-3d flex flex-col h-[180px]">
+              <div class="px-4 pb-4 card-content-3d flex flex-col">
                 <h3 class="text-xl font-bold text-forest mb-2" style="font-family:'Playfair Display',serif;">Όλγα Κοντράσκινα</h3>
-                <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-4 border-b border-sage/10 pb-4 flex-shrink-0">ΣΥΜΒΟΥΛΟΣ ΨΥΧΙΚΗΣ ΥΓΕΙΑΣ</p>
-                <div class="mt-auto">
+                <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-1 flex-shrink-0">ΣΥΜΒΟΥΛΟΣ ΨΥΧΙΚΗΣ ΥΓΕΙΑΣ</p>
+                <div>
                     <span class="inline-flex items-center gap-2 text-forest font-bold text-xs uppercase tracking-widest group-hover:text-sage transition-colors">ΠΛΗΡΕΣ ΒΙΟΓΡΑΦΙΚΟ <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
                 </div>
               </div>
             </div>
           </div>
           
-          <div class="tilt-card relative z-10" onclick="event.preventDefault(); navigate('psych-tsiorou')">
+          <div class="tilt-card cursor-pointer relative z-10" onclick="event.preventDefault(); navigate('psych-tsiorou')">
             <div class="tilt-card-inner bg-white rounded-3xl p-4 shadow-[0_10px_30px_rgba(21,52,48,0.03)] border border-sage/10 h-full group">
               <div class="glare"></div>
               <div class="overflow-hidden rounded-2xl mb-6"><img src="https://github.com/agelmet/MOUXALOS/blob/main/tsiw.jpg?raw=true" alt="Σταυρούλα Τσιώρου" class="team-img" loading="lazy" /></div>
-              <div class="px-4 pb-4 card-content-3d flex flex-col h-[180px]">
+              <div class="px-4 pb-4 card-content-3d flex flex-col">
                 <h3 class="text-xl font-bold text-forest mb-2" style="font-family:'Playfair Display',serif;">Σταυρούλα Τσιώρου</h3>
-                <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-4 border-b border-sage/10 pb-4 flex-shrink-0">ΨΥΧΟΛΟΓΟΣ & ΟΙΚΟΓΕΝΕΙΑΚΗ ΘΕΡΑΠΕΥΤΡΙΑ</p>
-                <div class="mt-auto">
+                <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-1 flex-shrink-0">ΨΥΧΟΛΟΓΟΣ & ΟΙΚΟΓΕΝΕΙΑΚΗ ΘΕΡΑΠΕΥΤΡΙΑ</p>
+                <div>
                     <span class="inline-flex items-center gap-2 text-forest font-bold text-xs uppercase tracking-widest group-hover:text-sage transition-colors">ΠΛΗΡΕΣ ΒΙΟΓΡΑΦΙΚΟ <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
                 </div>
               </div>
             </div>
           </div>
           
-          <div class="tilt-card relative z-10" onclick="event.preventDefault(); navigate('psych-spentzou')">
+          <div class="tilt-card cursor-pointer relative z-10" onclick="event.preventDefault(); navigate('psych-spentzou')">
             <div class="tilt-card-inner bg-white rounded-3xl p-4 shadow-[0_10px_30px_rgba(21,52,48,0.03)] border border-sage/10 h-full group">
               <div class="glare"></div>
               <div class="overflow-hidden rounded-2xl mb-6"><img src="https://github.com/agelmet/Image-hosting-/blob/main/Georgina%20Spentzou%20Photo.jpg?raw=true" alt="Τζωρτζίνα Σπέντζου" class="team-img" loading="lazy" /></div>
-              <div class="px-4 pb-4 card-content-3d flex flex-col h-[180px]">
+              <div class="px-4 pb-4 card-content-3d flex flex-col">
                 <h3 class="text-xl font-bold text-forest mb-2" style="font-family:'Playfair Display',serif;">Τζωρτζίνα Σπέντζου</h3>
-                <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-4 border-b border-sage/10 pb-4 flex-shrink-0">ΨΥΧΟΛΟΓΟΣ & EXECUTIVE COACH</p>
-                <div class="mt-auto">
+                <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-1 flex-shrink-0">ΨΥΧΟΛΟΓΟΣ & EXECUTIVE COACH</p>
+                <div>
                     <span class="inline-flex items-center gap-2 text-forest font-bold text-xs uppercase tracking-widest group-hover:text-sage transition-colors">ΠΛΗΡΕΣ ΒΙΟΓΡΑΦΙΚΟ <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
                 </div>
               </div>
             </div>
           </div>
           
-          <div class="tilt-card relative z-10" onclick="event.preventDefault(); navigate('psych-karavakou')">
+          <div class="tilt-card cursor-pointer relative z-10" onclick="event.preventDefault(); navigate('psych-karavakou')">
             <div class="tilt-card-inner bg-white rounded-3xl p-4 shadow-[0_10px_30px_rgba(21,52,48,0.03)] border border-sage/10 h-full group">
               <div class="glare"></div>
               <div class="overflow-hidden rounded-2xl mb-6"><img src="https://github.com/agelmet/Image-hosting-/blob/main/Karavakoy.jpg?raw=true" alt="Βιργινία Καραβάκου" class="team-img" loading="lazy" /></div>
-              <div class="px-4 pb-4 card-content-3d flex flex-col h-[180px]">
+              <div class="px-4 pb-4 card-content-3d flex flex-col">
                 <h3 class="text-xl font-bold text-forest mb-2" style="font-family:'Playfair Display',serif;">Βιργινία Καραβάκου</h3>
-                <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-4 border-b border-sage/10 pb-4 flex-shrink-0">ΣΥΜΒΟΥΛΟΣ ΨΥΧΙΚΗΣ ΥΓΕΙΑΣ & COACH</p>
-                <div class="mt-auto">
+                <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-1 flex-shrink-0">ΣΥΜΒΟΥΛΟΣ ΨΥΧΙΚΗΣ ΥΓΕΙΑΣ & COACH</p>
+                <div>
                     <span class="inline-flex items-center gap-2 text-forest font-bold text-xs uppercase tracking-widest group-hover:text-sage transition-colors">ΠΛΗΡΕΣ ΒΙΟΓΡΑΦΙΚΟ <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
                 </div>
               </div>
             </div>
           </div>
-
-          <div class="tilt-card relative z-10" onclick="event.preventDefault(); navigate('psych-kordosi')">
+          
+          <div class="tilt-card cursor-pointer relative z-10" onclick="event.preventDefault(); navigate('psych-kordosi')">
             <div class="tilt-card-inner bg-white rounded-3xl p-4 shadow-[0_10px_30px_rgba(21,52,48,0.03)] border border-sage/10 h-full group">
               <div class="glare"></div>
               <div class="overflow-hidden rounded-2xl mb-6"><img src="https://github.com/agelmet/MOUXALOS/blob/main/KORDOSH.JPG?raw=true" alt="Αλεξάνδρα Κορδόση" class="team-img" loading="lazy" /></div>
-              <div class="px-4 pb-4 card-content-3d flex flex-col h-[180px]">
+              <div class="px-4 pb-4 card-content-3d flex flex-col">
                 <h3 class="text-xl font-bold text-forest mb-2" style="font-family:'Playfair Display',serif;">Αλεξάνδρα Κορδόση</h3>
-                <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-4 border-b border-sage/10 pb-4 flex-shrink-0">ΣΥΜΒΟΥΛΕΥΤΙΚΗ ΨΥΧΟΛΟΓΟΣ & ΟΜΑΔΙΚΗ ΨΥΧΟΘΕΡΑΠΕΥΤΡΙΑ</p>
-                <div class="mt-auto">
+                <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-1 flex-shrink-0">ΣΥΜΒΟΥΛΕΥΤΙΚΗ ΨΥΧΟΛΟΓΟΣ & ΟΜΑΔΙΚΗ ΨΥΧΟΘΕΡΑΠΕΥΤΡΙΑ</p>
+                <div>
                     <span class="inline-flex items-center gap-2 text-forest font-bold text-xs uppercase tracking-widest group-hover:text-sage transition-colors">ΠΛΗΡΕΣ ΒΙΟΓΡΑΦΙΚΟ <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
                 </div>
               </div>
             </div>
           </div>
           
-          <div class="tilt-card relative z-10" onclick="event.preventDefault(); navigate('psych-komninos')">
+          <div class="tilt-card cursor-pointer relative z-10" onclick="event.preventDefault(); navigate('psych-komninos')">
             <div class="tilt-card-inner bg-white rounded-3xl p-4 shadow-[0_10px_30px_rgba(21,52,48,0.03)] border border-sage/10 h-full group">
               <div class="glare"></div>
               <div class="overflow-hidden rounded-2xl mb-6"><img src="https://github.com/agelmet/MOUXALOS/blob/main/komnimos.jpeg?raw=true" alt="Βασίλης Κομνηνός" class="team-img" loading="lazy" /></div>
-              <div class="px-4 pb-4 card-content-3d flex flex-col h-[180px]">
+              <div class="px-4 pb-4 card-content-3d flex flex-col">
                 <h3 class="text-xl font-bold text-forest mb-2" style="font-family:'Playfair Display',serif;">Βασίλης Κομνηνός</h3>
-                <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-4 border-b border-sage/10 pb-4 flex-shrink-0">ΨΥΧΟΛΟΓΟΣ - ΨΥΧΟΘΕΡΑΠΕΥΤΗΣ</p>
-                <div class="mt-auto">
+                <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-1 flex-shrink-0">ΨΥΧΟΛΟΓΟΣ - ΨΥΧΟΘΕΡΑΠΕΥΤΗΣ</p>
+                <div>
                     <span class="inline-flex items-center gap-2 text-forest font-bold text-xs uppercase tracking-widest group-hover:text-sage transition-colors">ΠΛΗΡΕΣ ΒΙΟΓΡΑΦΙΚΟ <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
                 </div>
               </div>
             </div>
           </div>
           
-          <div class="tilt-card relative z-10 lg:col-start-2" onclick="event.preventDefault(); navigate('psych-sitareniou')">
+          <div class="tilt-card cursor-pointer relative z-10" onclick="event.preventDefault(); navigate('psych-sitareniou')">
             <div class="tilt-card-inner bg-white rounded-3xl p-4 shadow-[0_10px_30px_rgba(21,52,48,0.03)] border border-sage/10 h-full group">
               <div class="glare"></div>
               <div class="overflow-hidden rounded-2xl mb-6"><img src="https://github.com/agelmet/MOUXALOS/blob/main/sit.jpg?raw=true" alt="Μαρίνα Σιταρένιου" class="team-img" loading="lazy" /></div>
-              <div class="px-4 pb-4 card-content-3d flex flex-col h-[180px]">
+              <div class="px-4 pb-4 card-content-3d flex flex-col">
                 <h3 class="text-xl font-bold text-forest mb-2" style="font-family:'Playfair Display',serif;">Μαρίνα Σιταρένιου</h3>
-                <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-4 border-b border-sage/10 pb-4 flex-shrink-0">ΨΥΧΟΛΟΓΟΣ & ΕΙΔΙΚΕΥΟΜΕΝΗ ΨΥΧΟΘΕΡΑΠΕΥΤΡΙΑ</p>
-                <div class="mt-auto">
+                <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-1 flex-shrink-0">ΨΥΧΟΛΟΓΟΣ & ΕΙΔΙΚΕΥΟΜΕΝΗ ΨΥΧΟΘΕΡΑΠΕΥΤΡΙΑ</p>
+                <div>
                     <span class="inline-flex items-center gap-2 text-forest font-bold text-xs uppercase tracking-widest group-hover:text-sage transition-colors">ΠΛΗΡΕΣ ΒΙΟΓΡΑΦΙΚΟ <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
                 </div>
               </div>
@@ -599,9 +596,6 @@
     </section>
 
     <section class="py-32 lg:py-48 bg-forest relative overflow-hidden">
-      <div class="marquee-container bottom-10 opacity-5">
-        <div class="marquee-content">Ο ΧΩΡΟΣ — Ο ΧΩΡΟΣ — Ο ΧΩΡΟΣ — Ο ΧΩΡΟΣ — Ο ΧΩΡΟΣ — Ο ΧΩΡΟΣ — Ο ΧΩΡΟΣ — Ο ΧΩΡΟΣ — </div>
-      </div>
       
       <div class="max-w-7xl mx-auto px-6 relative z-10">
         <div class="text-center mb-20 reveal">
@@ -657,9 +651,6 @@
 
   <div id="page-ypiresies" class="page">
     <section class="pt-48 pb-24 bg-forest-deep relative overflow-hidden">
-      <div class="marquee-container top-1/4">
-        <div class="marquee-content">ΥΠΗΡΕΣΙΕΣ — ΨΥΧΟΘΕΡΑΠΕΙΑ — ΥΠΗΡΕΣΙΕΣ — ΨΥΧΟΘΕΡΑΠΕΙΑ — ΥΠΗΡΕΣΙΕΣ — ΨΥΧΟΘΕΡΑΠΕΙΑ — </div>
-      </div>
       <div class="orb w-[500px] h-[500px] bg-sage/10 top-0 left-0"></div>
       <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
         <span class="text-sage text-xs font-bold tracking-[0.2em] uppercase mb-6 block">ΠΡΟΣΕΓΓΙΣΕΙΣ</span>
@@ -966,9 +957,6 @@
 
   <div id="page-psychologoi" class="page">
     <section class="pt-48 pb-24 bg-forest-deep relative overflow-hidden">
-      <div class="marquee-container top-1/4">
-        <div class="marquee-content">Η ΟΜΑΔΑ ΜΑΣ — Η ΟΜΑΔΑ ΜΑΣ — Η ΟΜΑΔΑ ΜΑΣ — Η ΟΜΑΔΑ ΜΑΣ — Η ΟΜΑΔΑ ΜΑΣ — </div>
-      </div>
       <div class="orb w-[500px] h-[500px] bg-sage/10 top-0 left-0"></div>
       <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
         <span class="text-sage text-xs font-bold tracking-[0.2em] uppercase mb-6 block">Η ΟΜΑΔΑ ΜΑΣ</span>
@@ -976,16 +964,16 @@
         <p class="text-white/60 text-lg max-w-2xl mx-auto font-body font-light">10 εξειδικευμένοι επαγγελματίες, αφοσιωμένοι στην ψυχική σας υγεία.</p>
       </div>
     </section>
-    <section class="py-32 bg-cream"><div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 stagger">
+    <section class="py-32 bg-cream"><div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 gap-10 stagger">
       
       <div class="tilt-card cursor-pointer relative z-10" onclick="event.preventDefault(); navigate('psych-mouchalos')">
         <div class="tilt-card-inner bg-white rounded-3xl p-4 shadow-[0_10px_30px_rgba(21,52,48,0.03)] border border-sage/10 h-full group">
           <div class="glare"></div>
-          <div class="overflow-hidden rounded-2xl mb-6"><img src="https://raw.githubusercontent.com/agelmet/Image-hosting-/main/Μουχαλος.jpg" alt="Κωνσταντίνος Μούχαλος" class="team-img" loading="lazy" /></div>
-          <div class="px-4 pb-4 card-content-3d flex flex-col h-[180px]">
+          <div class="overflow-hidden rounded-2xl mb-6"><img src="https://github.com/agelmet/Image-hosting-/blob/main/Μουχαλος.jpg?raw=true" alt="Κωνσταντίνος Μούχαλος" class="team-img" loading="lazy" /></div>
+          <div class="px-4 pb-4 card-content-3d flex flex-col">
             <h3 class="text-xl font-bold text-forest mb-2" style="font-family:'Playfair Display',serif;">Κωνσταντίνος Δ. Μούχαλος</h3>
-            <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-4 border-b border-sage/10 pb-4 flex-shrink-0">ΙΔΡΥΤΗΣ & ΔΙΕΥΘΥΝΤΗΣ Ψ-PSY</p>
-            <div class="mt-auto">
+            <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-1 flex-shrink-0">ΙΔΡΥΤΗΣ & ΔΙΕΥΘΥΝΤΗΣ Ψ-PSY</p>
+            <div>
                 <span class="inline-flex items-center gap-2 text-forest font-bold text-xs uppercase tracking-widest group-hover:text-sage transition-colors">ΠΛΗΡΕΣ ΒΙΟΓΡΑΦΙΚΟ <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
             </div>
           </div>
@@ -995,11 +983,11 @@
       <div class="tilt-card cursor-pointer relative z-10" onclick="event.preventDefault(); navigate('psych-misailidis')">
         <div class="tilt-card-inner bg-white rounded-3xl p-4 shadow-[0_10px_30px_rgba(21,52,48,0.03)] border border-sage/10 h-full group">
           <div class="glare"></div>
-          <div class="overflow-hidden rounded-2xl mb-6"><img src="https://raw.githubusercontent.com/agelmet/Image-hosting-/main/GiorgosMisailidis%20.jpeg" alt="Γιώργος Μισαηλίδης" class="team-img" loading="lazy" /></div>
-          <div class="px-4 pb-4 card-content-3d flex flex-col h-[180px]">
+          <div class="overflow-hidden rounded-2xl mb-6"><img src="https://github.com/agelmet/Image-hosting-/blob/main/GiorgosMisailidis%20.jpeg?raw=true" alt="Γιώργος Μισαηλίδης" class="team-img" loading="lazy" /></div>
+          <div class="px-4 pb-4 card-content-3d flex flex-col">
             <h3 class="text-xl font-bold text-forest mb-2" style="font-family:'Playfair Display',serif;">Γιώργος Μισαηλίδης</h3>
-            <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-4 border-b border-sage/10 pb-4 flex-shrink-0">ΨΥΧΟΘΕΡΑΠΕΥΤΗΣ & ΕΚΠΑΙΔΕΥΤΙΚΟΣ</p>
-            <div class="mt-auto">
+            <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-1 flex-shrink-0">ΨΥΧΟΘΕΡΑΠΕΥΤΗΣ & ΕΚΠΑΙΔΕΥΤΙΚΟΣ</p>
+            <div>
                 <span class="inline-flex items-center gap-2 text-forest font-bold text-xs uppercase tracking-widest group-hover:text-sage transition-colors">ΠΛΗΡΕΣ ΒΙΟΓΡΑΦΙΚΟ <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
             </div>
           </div>
@@ -1009,11 +997,11 @@
       <div class="tilt-card cursor-pointer relative z-10" onclick="event.preventDefault(); navigate('psych-mavrea')">
         <div class="tilt-card-inner bg-white rounded-3xl p-4 shadow-[0_10px_30px_rgba(21,52,48,0.03)] border border-sage/10 h-full group">
           <div class="glare"></div>
-          <div class="overflow-hidden rounded-2xl mb-6"><img src="https://raw.githubusercontent.com/agelmet/Image-hosting-/main/ΦΩΤΟ%20ΜΑΥΡΕΑ.jpg" alt="Καλλιόπη Μαυρέα" class="team-img" loading="lazy" /></div>
-          <div class="px-4 pb-4 card-content-3d flex flex-col h-[180px]">
+          <div class="overflow-hidden rounded-2xl mb-6"><img src="https://github.com/agelmet/Image-hosting-/blob/main/ΦΩΤΟ%20ΜΑΥΡΕΑ.jpg?raw=true" alt="Καλλιόπη Μαυρέα" class="team-img" loading="lazy" /></div>
+          <div class="px-4 pb-4 card-content-3d flex flex-col">
             <h3 class="text-xl font-bold text-forest mb-2" style="font-family:'Playfair Display',serif;">Καλλιόπη Μαυρέα, MSc, PhD</h3>
-            <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-4 border-b border-sage/10 pb-4 flex-shrink-0">ΕΚΠΑΙΔΕΥΤΙΚΟΣ ΕΙΔΙΚΗΣ ΑΓΩΓΗΣ</p>
-            <div class="mt-auto">
+            <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-1 flex-shrink-0">ΕΚΠΑΙΔΕΥΤΙΚΟΣ ΕΙΔΙΚΗΣ ΑΓΩΓΗΣ</p>
+            <div>
                 <span class="inline-flex items-center gap-2 text-forest font-bold text-xs uppercase tracking-widest group-hover:text-sage transition-colors">ΠΛΗΡΕΣ ΒΙΟΓΡΑΦΙΚΟ <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
             </div>
           </div>
@@ -1023,11 +1011,11 @@
       <div class="tilt-card cursor-pointer relative z-10" onclick="event.preventDefault(); navigate('psych-kontraskina')">
         <div class="tilt-card-inner bg-white rounded-3xl p-4 shadow-[0_10px_30px_rgba(21,52,48,0.03)] border border-sage/10 h-full group">
           <div class="glare"></div>
-          <div class="overflow-hidden rounded-2xl mb-6"><img src="https://raw.githubusercontent.com/agelmet/Image-hosting-/main/Olga%20Kontraskina.jpg" alt="Όλγα Κοντράσκινα" class="team-img" loading="lazy" /></div>
-          <div class="px-4 pb-4 card-content-3d flex flex-col h-[180px]">
+          <div class="overflow-hidden rounded-2xl mb-6"><img src="https://github.com/agelmet/Image-hosting-/blob/main/Olga%20Kontraskina.jpg?raw=true" alt="Όλγα Κοντράσκινα" class="team-img" loading="lazy" /></div>
+          <div class="px-4 pb-4 card-content-3d flex flex-col">
             <h3 class="text-xl font-bold text-forest mb-2" style="font-family:'Playfair Display',serif;">Όλγα Κοντράσκινα</h3>
-            <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-4 border-b border-sage/10 pb-4 flex-shrink-0">ΣΥΜΒΟΥΛΟΣ ΨΥΧΙΚΗΣ ΥΓΕΙΑΣ</p>
-            <div class="mt-auto">
+            <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-1 flex-shrink-0">ΣΥΜΒΟΥΛΟΣ ΨΥΧΙΚΗΣ ΥΓΕΙΑΣ</p>
+            <div>
                 <span class="inline-flex items-center gap-2 text-forest font-bold text-xs uppercase tracking-widest group-hover:text-sage transition-colors">ΠΛΗΡΕΣ ΒΙΟΓΡΑΦΙΚΟ <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
             </div>
           </div>
@@ -1038,10 +1026,10 @@
         <div class="tilt-card-inner bg-white rounded-3xl p-4 shadow-[0_10px_30px_rgba(21,52,48,0.03)] border border-sage/10 h-full group">
           <div class="glare"></div>
           <div class="overflow-hidden rounded-2xl mb-6"><img src="https://github.com/agelmet/MOUXALOS/blob/main/tsiw.jpg?raw=true" alt="Σταυρούλα Τσιώρου" class="team-img" loading="lazy" /></div>
-          <div class="px-4 pb-4 card-content-3d flex flex-col h-[180px]">
+          <div class="px-4 pb-4 card-content-3d flex flex-col">
             <h3 class="text-xl font-bold text-forest mb-2" style="font-family:'Playfair Display',serif;">Σταυρούλα Τσιώρου</h3>
-            <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-4 border-b border-sage/10 pb-4 flex-shrink-0">ΨΥΧΟΛΟΓΟΣ & ΟΙΚΟΓΕΝΕΙΑΚΗ ΘΕΡΑΠΕΥΤΡΙΑ</p>
-            <div class="mt-auto">
+            <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-1 flex-shrink-0">ΨΥΧΟΛΟΓΟΣ & ΟΙΚΟΓΕΝΕΙΑΚΗ ΘΕΡΑΠΕΥΤΡΙΑ</p>
+            <div>
                 <span class="inline-flex items-center gap-2 text-forest font-bold text-xs uppercase tracking-widest group-hover:text-sage transition-colors">ΠΛΗΡΕΣ ΒΙΟΓΡΑΦΙΚΟ <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
             </div>
           </div>
@@ -1051,11 +1039,11 @@
       <div class="tilt-card cursor-pointer relative z-10" onclick="event.preventDefault(); navigate('psych-spentzou')">
         <div class="tilt-card-inner bg-white rounded-3xl p-4 shadow-[0_10px_30px_rgba(21,52,48,0.03)] border border-sage/10 h-full group">
           <div class="glare"></div>
-          <div class="overflow-hidden rounded-2xl mb-6"><img src="https://raw.githubusercontent.com/agelmet/Image-hosting-/main/Georgina%20Spentzou%20Photo.jpg" alt="Τζωρτζίνα Σπέντζου" class="team-img" loading="lazy" /></div>
-          <div class="px-4 pb-4 card-content-3d flex flex-col h-[180px]">
+          <div class="overflow-hidden rounded-2xl mb-6"><img src="https://github.com/agelmet/Image-hosting-/blob/main/Georgina%20Spentzou%20Photo.jpg?raw=true" alt="Τζωρτζίνα Σπέντζου" class="team-img" loading="lazy" /></div>
+          <div class="px-4 pb-4 card-content-3d flex flex-col">
             <h3 class="text-xl font-bold text-forest mb-2" style="font-family:'Playfair Display',serif;">Τζωρτζίνα Σπέντζου</h3>
-            <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-4 border-b border-sage/10 pb-4 flex-shrink-0">ΨΥΧΟΛΟΓΟΣ & EXECUTIVE COACH</p>
-            <div class="mt-auto">
+            <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-1 flex-shrink-0">ΨΥΧΟΛΟΓΟΣ & EXECUTIVE COACH</p>
+            <div>
                 <span class="inline-flex items-center gap-2 text-forest font-bold text-xs uppercase tracking-widest group-hover:text-sage transition-colors">ΠΛΗΡΕΣ ΒΙΟΓΡΑΦΙΚΟ <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
             </div>
           </div>
@@ -1065,11 +1053,11 @@
       <div class="tilt-card cursor-pointer relative z-10" onclick="event.preventDefault(); navigate('psych-karavakou')">
         <div class="tilt-card-inner bg-white rounded-3xl p-4 shadow-[0_10px_30px_rgba(21,52,48,0.03)] border border-sage/10 h-full group">
           <div class="glare"></div>
-          <div class="overflow-hidden rounded-2xl mb-6"><img src="https://raw.githubusercontent.com/agelmet/Image-hosting-/main/Karavakoy.jpg" alt="Βιργινία Καραβάκου" class="team-img" loading="lazy" /></div>
-          <div class="px-4 pb-4 card-content-3d flex flex-col h-[180px]">
+          <div class="overflow-hidden rounded-2xl mb-6"><img src="https://github.com/agelmet/Image-hosting-/blob/main/Karavakoy.jpg?raw=true" alt="Βιργινία Καραβάκου" class="team-img" loading="lazy" /></div>
+          <div class="px-4 pb-4 card-content-3d flex flex-col">
             <h3 class="text-xl font-bold text-forest mb-2" style="font-family:'Playfair Display',serif;">Βιργινία Καραβάκου</h3>
-            <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-4 border-b border-sage/10 pb-4 flex-shrink-0">ΣΥΜΒΟΥΛΟΣ ΨΥΧΙΚΗΣ ΥΓΕΙΑΣ & COACH</p>
-            <div class="mt-auto">
+            <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-1 flex-shrink-0">ΣΥΜΒΟΥΛΟΣ ΨΥΧΙΚΗΣ ΥΓΕΙΑΣ & COACH</p>
+            <div>
                 <span class="inline-flex items-center gap-2 text-forest font-bold text-xs uppercase tracking-widest group-hover:text-sage transition-colors">ΠΛΗΡΕΣ ΒΙΟΓΡΑΦΙΚΟ <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
             </div>
           </div>
@@ -1079,11 +1067,11 @@
       <div class="tilt-card cursor-pointer relative z-10" onclick="event.preventDefault(); navigate('psych-kordosi')">
         <div class="tilt-card-inner bg-white rounded-3xl p-4 shadow-[0_10px_30px_rgba(21,52,48,0.03)] border border-sage/10 h-full group">
           <div class="glare"></div>
-          <div class="overflow-hidden rounded-2xl mb-6"><img src="https://raw.githubusercontent.com/agelmet/MOUXALOS/main/KORDOSH.JPG" alt="Αλεξάνδρα Κορδόση" class="team-img" loading="lazy" /></div>
-          <div class="px-4 pb-4 card-content-3d flex flex-col h-[180px]">
+          <div class="overflow-hidden rounded-2xl mb-6"><img src="https://github.com/agelmet/MOUXALOS/blob/main/KORDOSH.JPG?raw=true" alt="Αλεξάνδρα Κορδόση" class="team-img" loading="lazy" /></div>
+          <div class="px-4 pb-4 card-content-3d flex flex-col">
             <h3 class="text-xl font-bold text-forest mb-2" style="font-family:'Playfair Display',serif;">Αλεξάνδρα Κορδόση</h3>
-            <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-4 border-b border-sage/10 pb-4 flex-shrink-0">ΣΥΜΒΟΥΛΕΥΤΙΚΗ ΨΥΧΟΛΟΓΟΣ & ΟΜΑΔΙΚΗ ΨΥΧΟΘΕΡΑΠΕΥΤΡΙΑ</p>
-            <div class="mt-auto">
+            <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-1 flex-shrink-0">ΣΥΜΒΟΥΛΕΥΤΙΚΗ ΨΥΧΟΛΟΓΟΣ & ΟΜΑΔΙΚΗ ΨΥΧΟΘΕΡΑΠΕΥΤΡΙΑ</p>
+            <div>
                 <span class="inline-flex items-center gap-2 text-forest font-bold text-xs uppercase tracking-widest group-hover:text-sage transition-colors">ΠΛΗΡΕΣ ΒΙΟΓΡΑΦΙΚΟ <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
             </div>
           </div>
@@ -1093,25 +1081,25 @@
       <div class="tilt-card cursor-pointer relative z-10" onclick="event.preventDefault(); navigate('psych-komninos')">
         <div class="tilt-card-inner bg-white rounded-3xl p-4 shadow-[0_10px_30px_rgba(21,52,48,0.03)] border border-sage/10 h-full group">
           <div class="glare"></div>
-          <div class="overflow-hidden rounded-2xl mb-6"><img src="https://raw.githubusercontent.com/agelmet/MOUXALOS/main/komnimos.jpeg" alt="Βασίλης Κομνηνός" class="team-img" loading="lazy" /></div>
-          <div class="px-4 pb-4 card-content-3d flex flex-col h-[180px]">
+          <div class="overflow-hidden rounded-2xl mb-6"><img src="https://github.com/agelmet/MOUXALOS/blob/main/komnimos.jpeg?raw=true" alt="Βασίλης Κομνηνός" class="team-img" loading="lazy" /></div>
+          <div class="px-4 pb-4 card-content-3d flex flex-col">
             <h3 class="text-xl font-bold text-forest mb-2" style="font-family:'Playfair Display',serif;">Βασίλης Κομνηνός</h3>
-            <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-4 border-b border-sage/10 pb-4 flex-shrink-0">ΨΥΧΟΛΟΓΟΣ - ΨΥΧΟΘΕΡΑΠΕΥΤΗΣ</p>
-            <div class="mt-auto">
+            <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-1 flex-shrink-0">ΨΥΧΟΛΟΓΟΣ - ΨΥΧΟΘΕΡΑΠΕΥΤΗΣ</p>
+            <div>
                 <span class="inline-flex items-center gap-2 text-forest font-bold text-xs uppercase tracking-widest group-hover:text-sage transition-colors">ΠΛΗΡΕΣ ΒΙΟΓΡΑΦΙΚΟ <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
             </div>
           </div>
         </div>
       </div>
       
-      <div class="tilt-card cursor-pointer relative z-10 lg:col-start-2" onclick="event.preventDefault(); navigate('psych-sitareniou')">
+      <div class="tilt-card cursor-pointer relative z-10" onclick="event.preventDefault(); navigate('psych-sitareniou')">
         <div class="tilt-card-inner bg-white rounded-3xl p-4 shadow-[0_10px_30px_rgba(21,52,48,0.03)] border border-sage/10 h-full group">
           <div class="glare"></div>
           <div class="overflow-hidden rounded-2xl mb-6"><img src="https://github.com/agelmet/MOUXALOS/blob/main/sit.jpg?raw=true" alt="Μαρίνα Σιταρένιου" class="team-img" loading="lazy" /></div>
-          <div class="px-4 pb-4 card-content-3d flex flex-col h-[180px]">
+          <div class="px-4 pb-4 card-content-3d flex flex-col">
             <h3 class="text-xl font-bold text-forest mb-2" style="font-family:'Playfair Display',serif;">Μαρίνα Σιταρένιου</h3>
-            <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-4 border-b border-sage/10 pb-4 flex-shrink-0">ΨΥΧΟΛΟΓΟΣ & ΕΙΔΙΚΕΥΟΜΕΝΗ ΨΥΧΟΘΕΡΑΠΕΥΤΡΙΑ</p>
-            <div class="mt-auto">
+            <p class="text-sage text-[10px] font-bold tracking-[0.1em] uppercase mb-1 flex-shrink-0">ΨΥΧΟΛΟΓΟΣ & ΕΙΔΙΚΕΥΟΜΕΝΗ ΨΥΧΟΘΕΡΑΠΕΥΤΡΙΑ</p>
+            <div>
                 <span class="inline-flex items-center gap-2 text-forest font-bold text-xs uppercase tracking-widest group-hover:text-sage transition-colors">ΠΛΗΡΕΣ ΒΙΟΓΡΑΦΙΚΟ <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
             </div>
           </div>
@@ -1129,7 +1117,7 @@
     </div></section>
     <section class="py-32 bg-cream"><div class="max-w-5xl mx-auto px-6">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-16 reveal">
-        <div class="md:col-span-5"><div class="img-reveal rounded-3xl overflow-hidden shadow-2xl"><img src="https://raw.githubusercontent.com/agelmet/Image-hosting-/main/Μουχαλος.jpg" alt="Κωνσταντίνος Μούχαλος" class="w-full" loading="lazy" /></div></div>
+        <div class="md:col-span-5"><div class="img-reveal rounded-3xl overflow-hidden shadow-2xl"><img src="https://github.com/agelmet/Image-hosting-/blob/main/Μουχαλος.jpg?raw=true" alt="Κωνσταντίνος Μούχαλος" class="w-full" loading="lazy" /></div></div>
         <div class="md:col-span-7 pt-4">
           <div class="prose text-forest/70 font-body text-lg leading-relaxed mb-12">
             <p class="mb-6">Ο Κωνσταντίνος Δ. Μούχαλος είναι σχεσιακός ψυχαναλυτικός και ομαδικός ψυχοθεραπευτής με έδρα την Αθήνα. Ειδικεύτηκε στη Σχεσιακή Ψυχανάλυση και στην Ομαδική Ψυχοθεραπεία κατά Yalom.</p>
@@ -1156,7 +1144,7 @@
     </div></section>
     <section class="py-32 bg-cream"><div class="max-w-5xl mx-auto px-6">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-16 reveal">
-        <div class="md:col-span-5"><div class="img-reveal rounded-3xl overflow-hidden shadow-2xl"><img src="https://raw.githubusercontent.com/agelmet/Image-hosting-/main/GiorgosMisailidis%20.jpeg" alt="Γιώργος Μισαηλίδης" class="w-full" loading="lazy" /></div></div>
+        <div class="md:col-span-5"><div class="img-reveal rounded-3xl overflow-hidden shadow-2xl"><img src="https://github.com/agelmet/Image-hosting-/blob/main/GiorgosMisailidis%20.jpeg?raw=true" alt="Γιώργος Μισαηλίδης" class="w-full" loading="lazy" /></div></div>
         <div class="md:col-span-7 pt-4">
           <div class="prose text-forest/70 font-body text-lg leading-relaxed mb-12">
             <p class="mb-6">Ο Γιώργος Μισαηλίδης είναι ψυχοθεραπευτής και εκπαιδευτικός με εκτενή εμπειρία στην ψυχολογία, την εκπαίδευση και την ανθρώπινη ανάπτυξη. Κατέχει πτυχίο (BSc) στην Ψυχολογία, μεταπτυχιακό δίπλωμα στην Εφαρμοσμένη Ψυχολογία και μεταπτυχιακό δίπλωμα στο Γνωσιακό Αναλυτικό Μοντέλο Ψυχοθεραπείας.</p>
@@ -1184,7 +1172,7 @@
     </div></section>
     <section class="py-32 bg-cream"><div class="max-w-5xl mx-auto px-6">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-16 reveal">
-        <div class="md:col-span-5"><div class="img-reveal rounded-3xl overflow-hidden shadow-2xl"><img src="https://raw.githubusercontent.com/agelmet/Image-hosting-/main/ΦΩΤΟ%20ΜΑΥΡΕΑ.jpg" alt="Καλλιόπη Μαυρέα" class="w-full" loading="lazy" /></div></div>
+        <div class="md:col-span-5"><div class="img-reveal rounded-3xl overflow-hidden shadow-2xl"><img src="https://github.com/agelmet/Image-hosting-/blob/main/ΦΩΤΟ%20ΜΑΥΡΕΑ.jpg?raw=true" alt="Καλλιόπη Μαυρέα" class="w-full" loading="lazy" /></div></div>
         <div class="md:col-span-7 pt-4">
           <div class="prose text-forest/70 font-body text-lg leading-relaxed mb-12">
             <p class="mb-6">Η Καλλιόπη Μαυρέα είναι Εκπαιδευτικός Γενικής και Ειδικής Αγωγής με δεκαοχτώ (18) έτη εργασιακής εμπειρίας. Είναι απόφοιτη του Παιδαγωγικού Τμήματος Δημοτικής Εκπαίδευσης του ΕΚΠΑ, με μεταπτυχιακό στην Ειδική Αγωγή.</p>
@@ -1211,7 +1199,7 @@
     </div></section>
     <section class="py-32 bg-cream"><div class="max-w-5xl mx-auto px-6">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-16 reveal">
-        <div class="md:col-span-5"><div class="img-reveal rounded-3xl overflow-hidden shadow-2xl"><img src="https://raw.githubusercontent.com/agelmet/Image-hosting-/main/Olga%20Kontraskina.jpg" alt="Όλγα Κοντράσκινα" class="w-full" loading="lazy" /></div></div>
+        <div class="md:col-span-5"><div class="img-reveal rounded-3xl overflow-hidden shadow-2xl"><img src="https://github.com/agelmet/Image-hosting-/blob/main/Olga%20Kontraskina.jpg?raw=true" alt="Όλγα Κοντράσκινα" class="w-full" loading="lazy" /></div></div>
         <div class="md:col-span-7 pt-4">
           <div class="prose text-forest/70 font-body text-lg leading-relaxed mb-12">
             <p class="mb-6">Η Όλγα Κοντράσκινα είναι Σύμβουλος Ψυχικής Υγείας, με ακαδημαϊκό υπόβαθρο στην Κοινωνική Ανθρωπολογία και μεταπτυχιακές σπουδές (MA) στη Συμβουλευτική και Ψυχοθεραπεία.</p>
@@ -1238,7 +1226,7 @@
     </div></section>
     <section class="py-32 bg-cream"><div class="max-w-5xl mx-auto px-6">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-16 reveal">
-        <div class="md:col-span-5"><div class="img-reveal rounded-3xl overflow-hidden shadow-2xl"><img src="https://github.com/agelmet/MOUXALOS/blob/main/tsiw.jpg?raw=true" alt="Σταυρούλα Τσιώρου" class="w-full" loading="lazy" /></div></div>
+        <div class="md:col-span-5"><div class="img-reveal rounded-3xl overflow-hidden shadow-2xl bg-cream-dark flex items-center justify-center border border-sage/20 aspect-[3/4]"><img src="https://github.com/agelmet/MOUXALOS/blob/main/tsiw.jpg?raw=true" alt="Σταυρούλα Τσιώρου" class="w-full" loading="lazy" /></div></div>
         <div class="md:col-span-7 pt-4">
           <div class="prose text-forest/70 font-body text-lg leading-relaxed mb-12">
             <p class="mb-6">Η Σταυρούλα Τσιώρου είναι εκπαιδευτικός, ψυχολόγος, συστημική οικογενειακή ψυχοθεραπεύτρια και πιστοποιημένη ομαδική ψυχοθεραπεύτρια σύμφωνα με το μοντέλο του Irvin Yalom.</p>
@@ -1265,7 +1253,7 @@
     </div></section>
     <section class="py-32 bg-cream"><div class="max-w-5xl mx-auto px-6">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-16 reveal">
-        <div class="md:col-span-5"><div class="img-reveal rounded-3xl overflow-hidden shadow-2xl"><img src="https://raw.githubusercontent.com/agelmet/Image-hosting-/main/Georgina%20Spentzou%20Photo.jpg" alt="Τζωρτζίνα Σπέντζου" class="w-full" loading="lazy" /></div></div>
+        <div class="md:col-span-5"><div class="img-reveal rounded-3xl overflow-hidden shadow-2xl"><img src="https://github.com/agelmet/Image-hosting-/blob/main/Georgina%20Spentzou%20Photo.jpg?raw=true" alt="Τζωρτζίνα Σπέντζου" class="w-full" loading="lazy" /></div></div>
         <div class="md:col-span-7 pt-4">
           <div class="prose text-forest/70 font-body text-lg leading-relaxed mb-12">
             <p class="mb-6">Η Τζωρτζίνα Σπέντζου είναι ψυχολόγος και ψυχοθεραπεύτρια, business και executive coach, με 26 χρόνια εμπειρίας σε ελληνικές και πολυεθνικές εταιρίες.</p>
@@ -1292,7 +1280,7 @@
     </div></section>
     <section class="py-32 bg-cream"><div class="max-w-5xl mx-auto px-6">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-16 reveal">
-        <div class="md:col-span-5"><div class="img-reveal rounded-3xl overflow-hidden shadow-2xl"><img src="https://raw.githubusercontent.com/agelmet/Image-hosting-/main/Karavakoy.jpg" alt="Βιργινία Καραβάκου" class="w-full" loading="lazy" /></div></div>
+        <div class="md:col-span-5"><div class="img-reveal rounded-3xl overflow-hidden shadow-2xl"><img src="https://github.com/agelmet/Image-hosting-/blob/main/Karavakoy.jpg?raw=true" alt="Βιργινία Καραβάκου" class="w-full" loading="lazy" /></div></div>
         <div class="md:col-span-7 pt-4">
           <div class="prose text-forest/70 font-body text-lg leading-relaxed mb-12">
             <p class="mb-6">Η Βιργινία Καραβάκου είναι πιστοποιημένη Σύμβουλος Ψυχικής Υγείας (MA) και Coach (MSc στην Εφαρμοσμένη Θετική Ψυχολογία & Coaching Psychology).</p>
@@ -1319,7 +1307,7 @@
     </div></section>
     <section class="py-32 bg-cream"><div class="max-w-5xl mx-auto px-6">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-16 reveal">
-        <div class="md:col-span-5"><div class="img-reveal rounded-3xl overflow-hidden shadow-2xl"><img src="https://raw.githubusercontent.com/agelmet/MOUXALOS/main/KORDOSH.JPG" alt="Αλεξάνδρα Κορδόση" class="w-full" loading="lazy" /></div></div>
+        <div class="md:col-span-5"><div class="img-reveal rounded-3xl overflow-hidden shadow-2xl"><img src="https://github.com/agelmet/MOUXALOS/blob/main/KORDOSH.JPG?raw=true" alt="Αλεξάνδρα Κορδόση" class="w-full" loading="lazy" /></div></div>
         <div class="md:col-span-7 pt-4">
           <div class="prose text-forest/70 font-body text-lg leading-relaxed mb-12">
             <p class="mb-6">Η Αλεξάνδρα Κορδόση είναι Πιστοποιημένη Συμβουλευτική Ψυχολόγος και Ομαδική Ψυχοθεραπεύτρια με δεκαεπτά (17) έτη εργασιακής εμπειρίας. Είναι κάτοχος πτυχίου Ψυχολογίας (BSc.) από το Middlesex University και μεταπτυχιακού (MA.) στην Ψυχοθεραπεία και Συμβουλευτική από το Regent's College του Λονδίνου.</p>
@@ -1346,7 +1334,7 @@
     </div></section>
     <section class="py-32 bg-cream"><div class="max-w-5xl mx-auto px-6">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-16 reveal">
-        <div class="md:col-span-5"><div class="img-reveal rounded-3xl overflow-hidden shadow-2xl"><img src="https://raw.githubusercontent.com/agelmet/MOUXALOS/main/komnimos.jpeg" alt="Βασίλης Κομνηνός" class="w-full" loading="lazy" /></div></div>
+        <div class="md:col-span-5"><div class="img-reveal rounded-3xl overflow-hidden shadow-2xl"><img src="https://github.com/agelmet/MOUXALOS/blob/main/komnimos.jpeg?raw=true" alt="Βασίλης Κομνηνός" class="w-full" loading="lazy" /></div></div>
         <div class="md:col-span-7 pt-4">
           <div class="prose text-forest/70 font-body text-lg leading-relaxed mb-12">
             <p class="mb-6">Ο Βασίλης Κομνηνός είναι Ψυχολόγος - Ψυχοθεραπευτής. Είναι απόφοιτος του τμήματος Ψυχολογίας (BSc) του Open University του Ηνωμένου Βασιλείου, με μεταπτυχιακή εκπαίδευση στη Σχεσιακή Ομαδική Ψυχοθεραπεία από το ΙΣΟΨ.</p>
@@ -1395,9 +1383,6 @@
 
   <div id="page-to-kentro" class="page">
     <section class="pt-48 pb-24 bg-forest-deep relative overflow-hidden">
-      <div class="marquee-container top-1/4">
-        <div class="marquee-content">ΕΝΑ ΑΣΦΑΛΕΣ ΠΕΡΙΒΑΛΛΟΝ — ΓΛΥΦΑΔΑ — ΕΝΑ ΑΣΦΑΛΕΣ ΠΕΡΙΒΑΛΛΟΝ — ΓΛΥΦΑΔΑ — </div>
-      </div>
       <div class="orb w-[500px] h-[500px] bg-sage/10 top-0 left-0"></div>
       <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
         <span class="text-sage text-xs font-bold tracking-[0.2em] uppercase mb-6 block">ΠΕΡΙΒΑΛΛΟΝ & ΦΙΛΟΣΟΦΙΑ</span>
@@ -1417,7 +1402,7 @@
         </div>
         <div class="img-reveal rounded-3xl overflow-hidden shadow-2xl h-full group">
           <div class="absolute inset-0 bg-sage/10 mix-blend-multiply z-10 transition-opacity duration-700 group-hover:opacity-0"></div>
-          <img src="https://raw.githubusercontent.com/agelmet/MOUXALOS/main/2026-02-16.jpg" alt="Ψ-PSY Κέντρο" class="w-full h-full object-cover aspect-[4/3] transform scale-110 group-hover:scale-100 transition-transform duration-[1.5s] ease-out" />
+          <img src="https://github.com/agelmet/MOUXALOS/blob/main/2026-02-16.jpg?raw=true" alt="Ψ-PSY Κέντρο" class="w-full h-full object-cover aspect-[4/3] transform scale-110 group-hover:scale-100 transition-transform duration-[1.5s] ease-out" />
         </div>
       </div>
 
@@ -1441,7 +1426,7 @@
           </div>
           <div class="bento-card p-10 group h-full">
             <div class="service-icon mb-6 transition-transform group-hover:scale-110 group-hover:bg-sage group-hover:text-white"><i data-lucide="heart-handshake" class="w-8 h-8"></i></div>
-            <h3 class="text-2xl font-bold text-forest mb-4" style="font-family:'Playfair Display',serif;">Ανθρωποκεντρικότητα</h3>
+            <h3 class="text-xl lg:text-2xl font-bold text-forest mb-4 break-words" style="font-family:'Playfair Display',serif;">Ανθρωποκεντρικότητα</h3>
             <p class="text-forest/60 text-base font-body leading-relaxed flex-grow">Το άτομο είναι πάντα στο κέντρο — με τις μοναδικές ανάγκες και τη δική του ιστορία.</p>
           </div>
           <div class="bento-card p-10 group h-full">
@@ -1457,7 +1442,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center reveal">
         <div class="order-2 lg:order-1 img-reveal rounded-3xl overflow-hidden shadow-2xl h-full group">
           <div class="absolute inset-0 bg-sage/10 mix-blend-multiply z-10 transition-opacity duration-700 group-hover:opacity-0"></div>
-          <img src="https://raw.githubusercontent.com/agelmet/Image-hosting-/main/2026-02-16-10.jpg" alt="Εσωτερικός Χώρος Ψ-PSY" class="w-full h-full object-cover aspect-[4/3] transform scale-110 group-hover:scale-100 transition-transform duration-[1.5s] ease-out" />
+          <img src="https://github.com/agelmet/Image-hosting-/blob/main/2026-02-16-10.jpg?raw=true" alt="Εσωτερικός Χώρος Ψ-PSY" class="w-full h-full object-cover aspect-[4/3] transform scale-110 group-hover:scale-100 transition-transform duration-[1.5s] ease-out" />
         </div>
         <div class="order-1 lg:order-2">
           <span class="text-sage text-xs font-bold tracking-[0.2em] uppercase mb-4 block">ΑΙΣΘΗΤΙΚΗ & ΓΑΛΗΝΗ</span>
@@ -1473,9 +1458,6 @@
 
   <div id="page-epikoinonia" class="page">
     <section class="pt-48 pb-24 bg-forest-deep relative overflow-hidden">
-      <div class="marquee-container top-1/4">
-        <div class="marquee-content">ΕΠΙΚΟΙΝΩΝΙΑ — ΓΛΥΦΑΔΑ — ΚΛΕΙΣΤΕ ΣΥΝΕΔΡΙΑ — ΕΠΙΚΟΙΝΩΝΙΑ — ΓΛΥΦΑΔΑ — ΚΛΕΙΣΤΕ ΣΥΝΕΔΡΙΑ — </div>
-      </div>
       <div class="orb w-[500px] h-[500px] bg-sage/10 top-0 right-0"></div>
       <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
         <span class="text-sage text-xs font-bold tracking-[0.2em] uppercase mb-6 block">ΑΣ ΜΙΛΗΣΟΥΜΕ</span>
@@ -1549,7 +1531,7 @@
       <div class="grid grid-cols-1 md:grid-cols-12 gap-16 mb-24 reveal">
         <div class="md:col-span-5">
           <div class="flex items-center gap-4 mb-8">
-            <img src="https://raw.githubusercontent.com/agelmet/Image-hosting-/main/597891457_1432943218836853_7585099840606536804_n.jpg" alt="Ψ-PSY Logo" class="w-14 h-14 rounded-full object-cover border-2 border-sage/30" />
+            <img src="https://github.com/agelmet/Image-hosting-/blob/main/597891457_1432943218836853_7585099840606536804_n.jpg?raw=true" alt="Ψ-PSY Logo" class="w-14 h-14 rounded-full object-cover border-2 border-sage/30" />
             <span class="text-3xl font-semibold tracking-widest uppercase" style="font-family:'Playfair Display',serif;">Ψ-PSY</span>
           </div>
           <p class="text-cream/50 text-base leading-relaxed font-body mb-8 max-w-sm">Ινστιτούτο Ψυχικής Υγείας και Ψυχοθεραπείας. Ένας ασφαλής, διεπιστημονικός χώρος αφιερωμένος στην ψυχική σας υγεία.</p>
@@ -1584,53 +1566,357 @@
     </div>
   </footer>
 
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'el', 
-        includedLanguages: 'el,en', 
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE, 
-        autoDisplay: false
-      }, 'google_translate_element');
-    }
-  </script>
-  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
   <script>
     lucide.createIcons();
 
-    /* --- Language Translation Toggle Integration --- */
+    /* --- Custom Native Translation System --- */
+    let currentLang = 'el';
+    const originalTexts = new Map();
+
+    const dict = {
+      /* ===== NAV & BUTTONS ===== */
+      'ΑΡΧΙΚΗ': 'HOME',
+      'ΥΠΗΡΕΣΙΕΣ': 'SERVICES',
+      'Η ΟΜΑΔΑ ΜΑΣ': 'OUR TEAM',
+      'ΤΟ ΚΕΝΤΡΟ': 'THE CENTER',
+      'ΕΠΙΚΟΙΝΩΝΙΑ': 'CONTACT',
+      'ΚΛΕΙΣΤΕ ΣΥΝΕΔΡΙΑ': 'BOOK A SESSION',
+      'ΠΕΡΙΣΣΟΤΕΡΑ': 'MORE',
+      'ΜΑΘΕΤΕ ΠΕΡΙΣΣΟΤΕΡΑ': 'LEARN MORE',
+      'ΠΛΗΡΕΣ ΒΙΟΓΡΑΦΙΚΟ': 'FULL BIO',
+      'ΟΛΕΣ ΟΙ ΥΠΗΡΕΣΙΕΣ': 'ALL SERVICES',
+      'ΟΛΗ Η ΟΜΑΔΑ': 'FULL TEAM',
+      'SCROLL': 'SCROLL',
+
+      /* ===== HERO ===== */
+      'Ψ-PSY ΙΝΣΤΙΤΟΥΤΟ': 'Ψ-PSY INSTITUTE',
+      'Η εξέλιξή σας': 'Your Evolution',
+      'ξεκινά': 'Starts',
+      'εδώ.': 'Here.',
+
+      'Μετατρέψτε τις προκλήσεις της ζωής σε αφετηρία για μια νέα ισορροπία. Στο Ψ-PSY, συνδυάζουμε 18 χρόνια εμπειρίας με μια βαθιά ανθρωποκεντρική προσέγγιση για να σας στηρίξουμε σε κάθε σας μετάβαση.': 'Turn life\'s challenges into a starting point for a new balance. At Ψ-PSY, we combine 18 years of experience with a deeply person-centered approach to support you in every transition.',
+
+      /* ===== STATS BAR ===== */
+      'ΧΡΟΝΙΑ ΕΜΠΕΙΡΙΑΣ': 'YEARS OF EXPERIENCE',
+      'ΕΠΑΓΓΕΛΜΑΤΙΕΣ': 'PROFESSIONALS',
+      'ΩΡΕΣ ΣΥΝΕΔΡΙΩΝ': 'SESSION HOURS',
+      'ΣΥΓΧΡΟΝΟΣ ΧΩΡΟΣ': 'MODERN SPACE',
+
+      /* ===== ABOUT SECTION ===== */
+      'ΤΟ ΚΕΝΤΡΟ': 'THE CENTER',
+      'Καλώς ήρθατε στο': 'Welcome to',
+      'Ψ-PSY.': 'Ψ-PSY.',
+      'Καλώς ήρθατε στο Ινστιτούτο Ψυχικής Υγείας και Ψυχοθεραπείας (Ψ-PSY). Είμαστε μια ομάδα αφοσιωμένων επαγγελματιών ψυχικής υγείας, ψυχοθεραπευτών και εκπαιδευτικών, προσηλωμένοι στην παροχή επιστημονικά τεκμηριωμένης και βαθιά ανθρωποκεντρικής φροντίδας.': 'Welcome to the Institute of Mental Health and Psychotherapy (Ψ-PSY). We are a team of dedicated mental health professionals, psychotherapists, and educators, committed to providing evidence-based and deeply person-centered care.',
+      'Είτε αναζητάτε ατομική υποστήριξη, καθοδήγηση για τη σχέση σας, είτε επαγγελματική συμβουλευτική, το κέντρο μας προσφέρει ένα ασφαλές περιβάλλον όπου η εμπειρία σας μπορεί να ακουστεί και να κατανοηθεί με σεβασμό.': 'Whether you are seeking individual support, guidance for your relationship, or professional counseling, our center offers a safe environment where your experience can be heard and understood with respect.',
+
+      /* ===== SERVICES SECTION (HOME) ===== */
+      'ΠΡΟΣΕΓΓΙΣΗ': 'APPROACH',
+      'Οι Υπηρεσίες μας': 'Our Services',
+      'Ατομική Ψυχοθεραπεία': 'Individual Psychotherapy',
+      'Η ατομική ψυχοθεραπεία είναι ένα από τα πιο ουσιαστικά δώρα που μπορείτε να κάνετε στον εαυτό σας. Πρόκειται για ένα συνεργατικό, προσωπικό ταξίδι, σχεδιασμένο να σας βοηθήσει να πλοηγηθείτε στις προκλήσεις της ζωής, να διαχειριστείτε το άγχος και να επουλώσετε τραύματα του παρελθόντος. Σε έναν ασφαλή και απολύτως εμπιστευτικό χώρο, εργαζόμαστε μαζί για να κατανοήσουμε βαθύτερα τα συναισθήματα και τις σκέψεις σας.': 'Individual psychotherapy is one of the most meaningful gifts you can give yourself. It is a collaborative, personal journey designed to help you navigate life\'s challenges, manage anxiety, and heal past traumas. In a safe and strictly confidential space, we work together to gain a deeper understanding of your emotions and thoughts.',
+      'Συχνά, νιώθουμε εγκλωβισμένοι σε επαναλαμβανόμενα μοτίβα συμπεριφοράς ή βαριές συναισθηματικές καταστάσεις. Μέσα από την ατομική θεραπεία, θα ανακαλύψετε τα εργαλεία για να σπάσετε αυτούς τους κύκλους, να ενισχύσετε την αυτοεκτίμησή σας και να χτίσετε την ψυχική ανθεκτικότητα που απαιτείται για μια ισορροπημένη καθημερινότητα.': 'We often feel trapped in repetitive behavioral patterns or overwhelming emotional states. Through individual therapy, you will discover the tools to break these cycles, boost your self-esteem, and build the psychological resilience needed for a balanced daily life.',
+      'Ομαδική Ψυχοθεραπεία': 'Group Psychotherapy',
+      'Πολλές φορές πιστεύουμε ότι είμαστε οι μόνοι που βιώνουμε μια συγκεκριμένη δυσκολία, με αποτέλεσμα να απομονωνόμαστε. Η ομαδική ψυχοθεραπεία ανατρέπει αυτή την πεποίθηση, προσφέροντας έναν ασφαλή χώρο όπου μπορείτε να συνδεθείτε με ανθρώπους που μοιράζονται παρόμοιες εμπειρίες.': 'We often believe we are the only ones going through a particular difficulty, which leads to isolation. Group psychotherapy overturns this belief, offering a safe space where you can connect with people who share similar experiences.',
+      'Λειτουργώντας ως ένας μικρόκοσμος της κοινωνίας, η ομάδα σας δίνει την ευκαιρία να κατανοήσετε πώς σχετίζεστε με τους άλλους, να λάβετε ειλικρινή ανατροφοδότηση χωρίς κριτική και να καλλιεργήσετε την αμοιβαία υποστήριξη. Είναι ένας εξαιρετικά δυναμικός τρόπος να βελτιώσετε τις διαπροσωπικές σας δεξιότητες και να βρείτε ανακούφιση μέσα από το μοίρασμα.': 'Functioning as a microcosm of society, the group gives you the opportunity to understand how you relate to others, receive honest feedback without judgment, and cultivate mutual support. It is an exceptionally dynamic way to improve your interpersonal skills and find relief through sharing.',
+      'Θεραπεία Ζεύγους': 'Couples Therapy',
+      'Ακόμα και οι πιο δυνατές σχέσεις δοκιμάζονται στον χρόνο. Η θεραπεία ζεύγους δεν είναι ο χώρος για να αναζητήσουμε "ποιος φταίει", αλλά το ασφαλές περιβάλλον όπου η σχέση σας μπαίνει στο επίκεντρο. Εδώ, μαθαίνετε να αποκωδικοποιείτε τις συμπεριφορές του συντρόφου σας και να εκφράζετε τις δικές σας ανάγκες χωρίς να δημιουργείται ένταση.': 'Even the strongest relationships are tested over time. Couples therapy is not a place to seek "who is to blame," but a safe environment where your relationship takes center stage. Here, you learn to decode your partner\'s behaviors and express your own needs without creating tension.',
+      'Ακόμα και οι πιο δυνατές σχέσεις δοκιμάζονται στον χρόνο. Η θεραπεία ζεύγους δεν είναι ο χώρος για να αναζητήσουμε "ποιος φταίει", αλλά το ασφαλές περιβάλλον όπου η σχέση σας μπαίνει στο επίκεντρο. Εδώ, μαθαίνετε να αποκωδικοποιείτε τις συμπεριφορές του συντρόφου σας και να εκφράζετε τις δικές σας ανάγκες χωρίς να δημιουργείται ένταση. Στόχος μας είναι να σας βοηθήσουμε να επαναδομήσετε την επικοινωνία σας.': 'Even the strongest relationships are tested over time. Couples therapy is not a place to seek "who is to blame," but a safe environment where your relationship takes center stage. Here, you learn to decode your partner\'s behaviors and express your own needs without creating tension. Our goal is to help you rebuild your communication.',
+      'Οικογενειακή Θεραπεία': 'Family Therapy',
+      'Η οικογένεια είναι ένα ζωντανό, αλληλένδετο σύστημα. Όταν ένα μέλος της αντιμετωπίζει μια δυσκολία ή περνάει μια κρίση, η ισορροπία ολόκληρου του συστήματος διαταράσσεται. Η οικογενειακή θεραπεία δεν εστιάζει στο πρόβλημα ενός ατόμου, αλλά στον τρόπο με τον οποίο τα μέλη αλληλεπιδρούν, επικοινωνούν και επηρεάζουν το ένα το άλλο.': 'The family is a living, interconnected system. When one member faces a difficulty or goes through a crisis, the balance of the entire system is disrupted. Family therapy does not focus on one person\'s problem, but on the way members interact, communicate, and affect each other.',
+      'Η οικογένεια είναι ένα ζωντανό, αλληλένδετο σύστημα. Όταν ένα μέλος της αντιμετωπίζει μια δυσκολία ή περνάει μια κρίση, η ισορροπία ολόκληρου του συστήματος διαταράσσεται. Η οικογενειακή θεραπεία δεν εστιάζει στο πρόβλημα ενός ατόμου, αλλά στον τρόπο με τον οποίο τα μέλη αλληλεπιδρούν, επικοινωνούν και επηρεάζουν το ένα το άλλο, προάγοντας την κατανόηση.': 'The family is a living, interconnected system. When one member faces a difficulty or goes through a crisis, the balance of the entire system is disrupted. Family therapy does not focus on one person\'s problem, but on the way members interact, communicate, and affect each other, fostering understanding.',
+      'Online Θεραπεία': 'Online Therapy',
+      'Στον σύγχρονο, απαιτητικό τρόπο ζωής, η φροντίδα της ψυχικής σας υγείας πρέπει να είναι εύκολα προσβάσιμη, όπου κι αν βρίσκεστε. Η online θεραπεία σας προσφέρει την ίδια υψηλή ποιότητα υποστήριξης με τις συνεδρίες στο γραφείο, μέσα από την άνεση και την ιδιωτικότητα του δικού σας χώρου.': 'In today\'s demanding lifestyle, caring for your mental health should be easily accessible, wherever you are. Online therapy offers you the same high quality of support as in-office sessions, from the comfort and privacy of your own space.',
+      'Στον σύγχρονο, απαιτητικό τρόπο ζωής, η φροντίδα της ψυχικής σας υγείας πρέπει να είναι εύκολα προσβάσιμη, όπου κι αν βρίσκεστε. Η online θεραπεία σας προσφέρει την ίδια υψηλή ποιότητα υποστήριξης με τις συνεδρίες στο γραφείο, μέσα από την άνεση και την ιδιωτικότητα του δικού σας χώρου, με απόλυτο σεβασμό στο ιατρικό απόρρητο.': 'In today\'s demanding lifestyle, caring for your mental health should be easily accessible, wherever you are. Online therapy offers you the same high quality of support as in-office sessions, from the comfort and privacy of your own space, with absolute respect for medical confidentiality.',
+
+      /* ===== TEAM HOME SECTION ===== */
+      'Η Ομάδα μας': 'Our Team',
+
+      /* ===== CTA SECTION ===== */
+      'Είστε έτοιμοι να κάνετε': 'Are you ready to take',
+      'το πρώτο βήμα;': 'the first step?',
+      'Επικοινωνήστε μαζί μας σήμερα για να κλείσετε μια συνεδρία ή να μάθετε περισσότερα για τις υπηρεσίες μας.': 'Contact us today to book a session or learn more about our services.',
+
+      /* ===== SERVICES PAGE ===== */
+      'ΠΡΟΣΕΓΓΙΣΕΙΣ': 'APPROACHES',
+      'Επιστημονικά τεκμηριωμένες προσεγγίσεις, σχεδιασμένες για τις ανάγκες σας.': 'Evidence-based approaches, designed for your needs.',
+      'Η ατομική ψυχοθεραπεία είναι ένα από τα πιο ουσιαστικά δώρα που μπορείτε να κάνετε στον εαυτό σας. Πρόκειται για ένα συνεργατικό, προσωπικό ταξίδι, σχεδιασμένο να σας βοηθήσει να πλοηγηθείτε στις προκλήσεις της ζωής, να διαχειριστείτε το άγχος και να επουλώσετε τραύματα του παρελθόντος.': 'Individual psychotherapy is one of the most meaningful gifts you can give yourself. It is a collaborative, personal journey designed to help you navigate life\'s challenges, manage anxiety, and heal past traumas.',
+      'Μέσα από την ατομική θεραπεία, θα ανακαλύψετε τα εργαλεία για να σπάσετε αυτούς τους κύκλους, να ενισχύσετε την αυτοεκτίμησή σας και να χτίσετε την ψυχική ανθεκτικότητα που απαιτείται για μια ισορροπημένη καθημερινότητα.': 'Through individual therapy, you will discover the tools to break these cycles, boost your self-esteem, and build the psychological resilience needed for a balanced daily life.',
+      'Πολλές φορές πιστεύουμε ότι είμαστε οι μόνοι που βιώνουμε μια συγκεκριμένη δυσκολία, με αποτέλεσμα να απομονωνόμαστε. Η ομαδική ψυχοθεραπεία ανατρέπει αυτή την πεποίθηση, προσφέροντας έναν ασφαλή χώρο όπου μπορείτε να συνδεθείτε με ανθρώπους που μοιράζονται παρόμοιες εμπειρίες.': 'We often believe we are the only ones going through a particular difficulty, which leads to isolation. Group psychotherapy overturns this belief, offering a safe space where you can connect with people who share similar experiences.',
+      'Λειτουργώντας ως ένας μικρόκοσμος της κοινωνίας, η ομάδα σας δίνει την ευκαιρία να κατανοήσετε πώς σχετίζεστε με τους άλλους, να λάβετε ειλικρινή ανατροφοδότηση χωρίς κριτική και να καλλιεργήσετε την αμοιβαία υποστήριξη.': 'Functioning as a microcosm of society, the group gives you the opportunity to understand how you relate to others, receive honest feedback without judgment, and cultivate mutual support.',
+      'Ακόμα και οι πιο δυνατές σχέσεις δοκιμάζονται στον χρόνο. Η θεραπεία ζεύγους δεν είναι ο χώρος για να αναζητήσουμε "ποιος φταίει", αλλά το ασφαλές περιβάλλον όπου η σχέση σας μπαίνει στο επίκεντρο. Εδώ, μαθαίνετε να αποκωδικοποιείτε τις συμπεριφορές του συντρόφου σας και να εκφράζετε τις δικές σας ανάγκες χωρίς να δημιουργείται ένταση.': 'Even the strongest relationships are tested over time. Couples therapy is not a place to seek "who is to blame," but a safe environment where your relationship takes center stage. Here, you learn to decode your partner\'s behaviors and express your own needs without creating tension.',
+
+      /* ===== SERVICE DETAIL PAGES ===== */
+      'Η ΔΙΑΔΡΟΜΗ ΠΡΟΣ ΤΗΝ ΠΡΟΣΩΠΙΚΗ ΣΑΣ ΙΣΟΡΡΟΠΙΑ': 'THE PATH TO YOUR PERSONAL BALANCE',
+      'Η απόφαση να ξεκινήσετε ατομική ψυχοθεραπεία είναι μια πράξη φροντίδας και θάρρους. Σημαίνει πως αναγνωρίζετε ότι κάτι στη ζωή σας σας δυσκολεύει και αποφασίζετε να αναλάβετε ενεργό ρόλο στη βελτίωσή του. Στο γραφείο μας, η ατομική ψυχοθεραπεία αντιμετωπίζεται ως ένας ιερός, εμπιστευτικός χώρος όπου δεν υπάρχει χώρος για κριτική, πρέπει, ή προσδοκίες τρίτων. Εδώ, υπάρχετε μόνο εσείς και οι δικές σας ανάγκες.': 'The decision to begin individual psychotherapy is an act of care and courage. It means you recognize that something in your life is causing difficulty and you choose to take an active role in improving it. In our office, individual psychotherapy is treated as a sacred, confidential space where there is no room for judgment, obligations, or others\' expectations. Here, only you and your needs exist.',
+      'Μαζί θα διερευνήσουμε τα συναισθήματα που σας κατακλύζουν, τις σκέψεις που σας περιορίζουν και τα μοτίβα συμπεριφοράς που ίσως επαναλαμβάνετε ασυνείδητα. Ο θεραπευτής σας δεν είναι εκεί για να σας δώσει έτοιμες, μαγικές λύσεις, αλλά για να λειτουργήσει ως συνοδοιπόρος. Σας βοηθά να φωτίσετε τα «τυφλά σημεία» σας, να κατανοήσετε τις ρίζες του πόνου σας και να ανακαλύψετε την εσωτερική σας δύναμη.': 'Together we will explore the emotions that overwhelm you, the thoughts that limit you, and the behavioral patterns you may unconsciously repeat. Your therapist is not there to give you ready-made, magical solutions, but to serve as a companion. They help you illuminate your "blind spots," understand the roots of your pain, and discover your inner strength.',
+      'Σε ποιους απευθύνεται;': 'Who is it for?',
+      'Άτομα που βιώνουν καθημερινό άγχος, κρίσεις πανικού ή χρόνιο στρες.': 'Individuals experiencing daily anxiety, panic attacks, or chronic stress.',
+      'Ανθρώπους που παλεύουν με τη θλίψη, την κατάθλιψη ή την αίσθηση ότι η ζωή έχει χάσει το νόημά της.': 'People struggling with grief, depression, or the feeling that life has lost its meaning.',
+      'Όσους δυσκολεύονται να διαχειριστούν τον θυμό τους ή νιώθουν χαμηλή αυτοεκτίμηση.': 'Those who have difficulty managing their anger or feel low self-esteem.',
+      'Άτομα που βιώνουν κρίσιμες μεταβάσεις (πένθος, διαζύγιο, απόλυση, αλλαγή περιβάλλοντος).': 'Individuals going through critical transitions (bereavement, divorce, job loss, change of environment).',
+      'Όσους αντιμετωπίζουν δυσκολίες στις διαπροσωπικές, φιλικές ή επαγγελματικές τους σχέσεις.': 'Those facing difficulties in their interpersonal, social, or professional relationships.',
+      'Ανθρώπους που επιθυμούν βαθύτερη αυτογνωσία και εξέλιξη, ακόμα κι αν δεν βρίσκονται σε κρίση.': 'People who desire deeper self-awareness and growth, even if they are not in crisis.',
+      'Οι συνεδρίες πραγματοποιούνται σε σταθερή εβδομαδιαία βάση και διαρκούν 50 λεπτά. Η σταθερότητα του πλαισίου δημιουργεί το απαραίτητο αίσθημα ασφάλειας.': 'Sessions are held on a regular weekly basis and last 50 minutes. The consistency of the framework creates the necessary sense of safety.',
+      'Μέσα από τον διάλογο, τη στοχευμένη ακρόαση και μεθόδους επιστημονικά τεκμηριωμένες, χτίζουμε μια "θεραπευτική συμμαχία" που θα αποτελέσει το όχημα για την αλλαγή σας.': 'Through dialogue, focused listening, and evidence-based methods, we build a "therapeutic alliance" that will serve as the vehicle for your transformation.',
+      'Συχνές Ερωτήσεις': 'Frequently Asked Questions',
+      'Πόσο καιρό θα χρειαστεί να κάνω ψυχοθεραπεία;': 'How long will I need to be in psychotherapy?',
+      'Δεν υπάρχει ένας γενικός κανόνας. Η διάρκεια εξαρτάται από τους στόχους σας, τη φύση του αιτήματός σας και τον ρυθμό που εσείς επιθυμείτε να ακολουθήσετε. Κάποιοι χρειάζονται μερικούς μήνες για ένα συγκεκριμένο ζήτημα, ενώ άλλοι επιλέγουν ένα πολυετές ταξίδι βαθιάς ανάλυσης.': 'There is no universal rule. The duration depends on your goals, the nature of your request, and the pace you wish to follow. Some people need a few months for a specific issue, while others choose a multi-year journey of deep analysis.',
+      'Τι γίνεται αν δεν ξέρω τι να πω στην πρώτη συνεδρία;': 'What if I don\'t know what to say in the first session?',
+      'Είναι απόλυτα φυσιολογικό να νιώθετε αμηχανία. Ο θεραπευτής είναι εκπαιδευμένος να διευκολύνει τη συζήτηση, να σας κάνει τις κατάλληλες ερωτήσεις και να σας βοηθήσει να ξετυλίξετε το νήμα των σκέψεών σας, πάντα με τον δικό σας ρυθμό.': 'It is perfectly normal to feel awkward. The therapist is trained to facilitate the conversation, ask you the right questions, and help you unravel the thread of your thoughts, always at your own pace.',
+      'Είναι όσα συζητάμε αυστηρά εμπιστευτικά;': 'Is everything we discuss strictly confidential?',
+      'Απόλυτα. Δεσμευόμαστε από τον κώδικα δεοντολογίας των ψυχολόγων/ψυχοθεραπευτών. Οτιδήποτε ειπωθεί μέσα στο δωμάτιο παραμένει αυστηρά μεταξύ εμάς, προσφέροντάς σας την απόλυτη ελευθερία να εκφραστείτε.': 'Absolutely. We are bound by the code of ethics of psychologists/psychotherapists. Anything said in the room remains strictly between us, offering you complete freedom to express yourself.',
+
+      /* ===== GROUP THERAPY PAGE ===== */
+      'Η ΔΥΝΑΜΗ ΤΟΥ "ΜΑΖΙ" ΣΤΗΝ ΕΠΟΥΛΩΣΗ': 'THE POWER OF "TOGETHER" IN HEALING',
+      'Συχνά νιώθουμε πως τα προβλήματά μας είναι μοναδικά και πως κανείς άλλος δεν μπορεί να καταλάβει το βάρος που κουβαλάμε. Αυτή η πεποίθηση γεννά μοναξιά. Η ομαδική ψυχοθεραπεία έρχεται να θεραπεύσει ακριβώς αυτή την απομόνωση. Η ομάδα δεν είναι απλώς μια συγκέντρωση ανθρώπων· είναι ένας ζωντανός οργανισμός, ένα εργαστήριο ανθρώπινων σχέσεων.': 'We often feel that our problems are unique and that no one else can understand the weight we carry. This belief breeds loneliness. Group psychotherapy comes to heal exactly this isolation. The group is not merely a gathering of people; it is a living organism, a laboratory of human relationships.',
+      'Μέσα σε ένα αυστηρά προστατευμένο περιβάλλον, με σταθερά μέλη και την καθοδήγηση του συντονιστή-θεραπευτή, αλληλεπιδράτε με άλλους ανθρώπους. Καθώς ακούτε τις ιστορίες τους, συχνά βλέπετε τον εαυτό σας σαν σε καθρέφτη. Καθώς μοιράζεστε τα δικά σας συναισθήματα, λαμβάνετε αποδοχή και υποστήριξη. Η ομάδα σας διδάσκει πώς να βάζετε όρια, πώς να διεκδικείτε τον χώρο σας και πώς να συνδέεστε με αυθεντικότητα.': 'Within a strictly protected environment, with regular members and the guidance of the facilitator-therapist, you interact with other people. As you listen to their stories, you often see yourself as in a mirror. As you share your own feelings, you receive acceptance and support. The group teaches you how to set boundaries, claim your space, and connect with authenticity.',
+      'Άτομα που αντιμετωπίζουν κοινωνικό άγχος, ντροπαλότητα ή δυσκολεύονται να κάνουν γνωριμίες.': 'Individuals dealing with social anxiety, shyness, or difficulty making connections.',
+      'Ανθρώπους που νιώθουν απομονωμένοι και αναζητούν την αίσθηση του ανήκειν.': 'People who feel isolated and seek a sense of belonging.',
+      'Άτομα που δυσκολεύονται να εμπιστευτούν τους άλλους ή να χτίσουν στενές σχέσεις.': 'Individuals who have difficulty trusting others or building close relationships.',
+      'Όσους αντιμετωπίζουν ζητήματα στις οικογενειακές ή ερωτικές τους σχέσεις.': 'Those facing issues in their family or romantic relationships.',
+      'Ανθρώπους που βρίσκονται ήδη σε ατομική θεραπεία και θέλουν να ενισχύσουν την πρόοδό τους.': 'People who are already in individual therapy and want to enhance their progress.',
+      'Οι ομάδες είναι συνήθως κλειστές (δεν μπαίνουν συνεχώς νέα μέλη) και ολιγομελείς (6-8 άτομα). Συναντώνται μία φορά την εβδομάδα, για περίπου 90 λεπτά.': 'Groups are typically closed (new members do not continuously join) and small (6-8 people). They meet once a week, for approximately 90 minutes.',
+      'Πριν ενταχθείτε σε μια ομάδα, προηγείται μια σειρά ατομικών συναντήσεων με τον θεραπευτή για να διασφαλιστεί ότι η ομάδα ταιριάζει στις ανάγκες σας και ότι είστε έτοιμοι για αυτή την εμπειρία.': 'Before joining a group, a series of individual sessions with the therapist takes place to ensure that the group suits your needs and that you are ready for this experience.',
+      'Πρέπει να μοιραστώ τα πιο βαθιά μου μυστικά με αγνώστους;': 'Do I have to share my deepest secrets with strangers?',
+      'Όχι. Μοιράζεστε ό,τι θέλετε, όταν είστε έτοιμοι. Σε κανέναν δεν ασκείται πίεση να μιλήσει αν δεν το επιθυμεί. Ακόμα και η σιωπηλή παρουσία και η ακρόαση των άλλων έχουν τεράστιο θεραπευτικό όφελος.': 'No. You share whatever you want, when you are ready. No one is pressured to speak if they do not wish to. Even silent presence and listening to others have tremendous therapeutic benefits.',
+      'Τι γίνεται αν κάποιος από την ομάδα αποκαλύψει όσα είπα;': 'What if someone from the group reveals what I said?',
+      'Το απόρρητο είναι ο αυστηρότερος κανόνας της ομαδικής θεραπείας. Όλα τα μέλη δεσμεύονται συμβολαιακά στην αρχή της χρονιάς ότι οτιδήποτε συζητιέται και οποιαδήποτε ταυτότητα μέλους παραμένει αυστηρά εντός της ομάδας.': 'Confidentiality is the strictest rule of group therapy. All members are contractually committed at the beginning of the year that anything discussed and any member\'s identity remains strictly within the group.',
+      'Αν δεν συμπαθήσω κάποιον στην ομάδα;': 'What if I don\'t like someone in the group?',
+      'Αυτό είναι μέρος της διαδικασίας! Στην πραγματική ζωή δεν συμπαθούμε τους πάντες. Η ομάδα είναι το ιδανικό, ασφαλές μέρος για να επεξεργαστείτε (μαζί με τον θεραπευτή) γιατί αυτό το άτομο σας δυσκολεύει και πώς μπορείτε να συνυπάρξετε.': 'That is part of the process! In real life, we don\'t like everyone. The group is the ideal, safe place to work through (together with the therapist) why that person bothers you and how you can coexist.',
+
+      /* ===== COUPLES THERAPY PAGE ===== */
+      'ΧΤΙΖΟΝΤΑΣ ΞΑΝΑ ΤΙΣ ΓΕΦΥΡΕΣ ΕΠΙΚΟΙΝΩΝΙΑΣ': 'REBUILDING THE BRIDGES OF COMMUNICATION',
+      'Κάθε σχέση έχει τον δικό της κύκλο ζωής. Στην αρχή επικρατεί ο ενθουσιασμός, όμως με το πέρασμα του χρόνου, η ρουτίνα, οι υποχρεώσεις και οι ανεπίλυτες συγκρούσεις μπορούν να δημιουργήσουν απόσταση. Όταν η επικοινωνία μετατρέπεται σε μόνιμη αντιπαράθεση, παράπονα και σιωπή, η θεραπεία ζεύγους μπορεί να δώσει τη διέξοδο.': 'Every relationship has its own life cycle. In the beginning, excitement prevails, but over time, routine, obligations, and unresolved conflicts can create distance. When communication turns into constant confrontation, complaints, and silence, couples therapy can provide the way out.',
+      'Στη θεραπεία ζεύγους, ο θεραπευτής δεν αναλαμβάνει τον ρόλο του δικαστή για να αποφασίσει «ποιος έχει δίκιο». Αντίθετα, παρατηρεί τη δυναμική της σχέσης σας. Ο "πελάτης" εδώ είναι η ίδια η σχέση. Μαζί, θα εντοπίσουμε τα αρνητικά μοτίβα αλληλεπίδρασης –εκείνον τον χορό παρεξηγήσεων που επαναλαμβάνετε– και θα μάθουμε νέους τρόπους για να ακούτε πραγματικά ο ένας τον άλλον, επαναφέροντας την οικειότητα και την ασφάλεια.': 'In couples therapy, the therapist does not take on the role of a judge to decide "who is right." Instead, they observe the dynamic of your relationship. The "client" here is the relationship itself. Together, we will identify the negative interaction patterns —that dance of misunderstandings you repeat— and learn new ways to truly listen to each other, restoring intimacy and safety.',
+      'Ζευγάρια που νιώθουν ότι έχουν αποξενωθεί συναισθηματικά ("συγκατοικούμε απλώς").': 'Couples who feel they have become emotionally estranged ("we\'re just roommates").',
+      'Συντρόφους που καυγαδίζουν συνεχώς για τα ίδια θέματα χωρίς να βρίσκουν λύση.': 'Partners who constantly argue about the same issues without finding a solution.',
+      'Ζευγάρια που βιώνουν κρίση εμπιστοσύνης (π.χ. απιστία, οικονομική εξαπάτηση).': 'Couples experiencing a trust crisis (e.g., infidelity, financial deception).',
+      'Συντρόφους με σεξουαλικές δυσκολίες ή ασυμφωνία στην οικειότητα.': 'Partners with sexual difficulties or disagreement in intimacy.',
+      'Ζευγάρια που αντιμετωπίζουν μεγάλες αλλαγές ζωής (ερχομός παιδιού, θέματα υπογονιμότητας, συνταξιοδότηση).': 'Couples facing major life changes (arrival of a child, infertility issues, retirement).',
+      'Ζευγάρια που σκέφτονται τον χωρισμό και θέλουν να διερευνήσουν αν η σχέση έχει περιθώρια βελτίωσης.': 'Couples considering separation who want to explore whether the relationship has room for improvement.',
+      'Οι συνεδρίες γίνονται συνήθως ανά δεκαπενθήμερο ή κάθε εβδομάδα. Στη συντριπτική πλειοψηφία των συναντήσεων, είναι απαραίτητη η παρουσία και των δύο συντρόφων.': 'Sessions are usually held biweekly or weekly. In the vast majority of meetings, the presence of both partners is required.',
+      'Ο σύντροφός μου δεν πιστεύει στην ψυχοθεραπεία και αρνείται να έρθει. Τι μπορώ να κάνω;': 'My partner doesn\'t believe in psychotherapy and refuses to come. What can I do?',
+      'Είναι πολύ συχνό φαινόμενο. Μπορείτε να ξεκινήσετε εσείς ατομικές συνεδρίες με εστίαση στη σχέση. Επειδή η σχέση είναι ένα σύστημα, όταν αλλάζει ο τρόπος που εσείς αντιδράτε και συμπεριφέρεστε, αναγκαστικά αλλάζει και η δυναμική της σχέσης, γεγονός που συχνά κινητοποιεί και τον άλλο σύντροφο.': 'It is very common. You can start individual sessions focusing on the relationship. Because the relationship is a system, when the way you react and behave changes, the dynamic of the relationship inevitably changes too, which often motivates the other partner as well.',
+      'Πόσο πιθανό είναι να σωθεί η σχέση μας αν έχουμε φτάσει στο όριο του διαζυγίου;': 'How likely is it that our relationship can be saved if we\'ve reached the brink of divorce?',
+      'Η θεραπεία δεν προσφέρει εγγυήσεις, αλλά παρέχει τα απαραίτητα εργαλεία. Πολλά ζευγάρια αναδομούν πλήρως τη σχέση τους ακόμα και μετά από σοβαρές κρίσεις (όπως μια απιστία). Η επιτυχία εξαρτάται από το αν υπάρχει ακόμα αγάπη και διάθεση για σκληρή δουλειά και από τις δύο πλευρές.': 'Therapy offers no guarantees, but it provides the necessary tools. Many couples completely restructure their relationship even after serious crises (such as infidelity). Success depends on whether there is still love and willingness for hard work from both sides.',
+      'Ο θεραπευτής θα μας πει αν πρέπει να χωρίσουμε;': 'Will the therapist tell us if we should break up?',
+      'Σε καμία περίπτωση. Ο θεραπευτής είναι αντικειμενικός διευκολυντής. Η απόφαση για το αν θα παραμείνετε μαζί ή θα χωρίσετε είναι αποκλειστικά δική σας. Αν αποφασίσετε να χωρίσετε, η θεραπεία θα σας βοηθήσει να το κάνετε με τον λιγότερο δυνατό πόνο, ειδικά αν υπάρχουν παιδιά.': 'Under no circumstances. The therapist is an objective facilitator. The decision of whether to stay together or separate is entirely yours. If you decide to separate, therapy will help you do so with the least possible pain, especially if there are children.',
+
+      /* ===== FAMILY THERAPY PAGE ===== */
+      'ΑΠΟΚΑΘΙΣΤΩΝΤΑΣ ΤΗΝ ΑΡΜΟΝΙΑ ΣΤΟ ΣΠΙΤΙ': 'RESTORING HARMONY AT HOME',
+      'Η οικογένεια μοιάζει με ένα κρεμαστό μόμπιλε πάνω από την κούνια ενός μωρού. Αν τραβήξεις το ένα κομμάτι του, όλα τα υπόλοιπα κουνιούνται και αλλάζουν θέση. Έτσι ακριβώς, όταν ένα μέλος της οικογένειας υποφέρει, είτε πρόκειται για ένα παιδί που αρνείται να πάει σχολείο, είτε για έναν έφηβο με παραβατική συμπεριφορά, είτε για έναν γονέα με κατάθλιψη, ολόκληρη η οικογένεια επηρεάζεται βαθιά.': 'The family resembles a mobile hanging above a baby\'s crib. If you pull one piece, all the others swing and shift position. In the same way, when one family member suffers, whether it is a child who refuses to go to school, a teenager with delinquent behavior, or a parent with depression, the entire family is deeply affected.',
+      'Η οικογενειακή θεραπεία αλλάζει το πρίσμα: σταματάμε να δείχνουμε με το δάχτυλο το "προβληματικό" μέλος και αρχίζουμε να εξετάζουμε το σύστημα ως σύνολο. Πώς επικοινωνούμε; Πώς λύνουμε τις διαφωνίες μας; Ποιοι είναι οι άγραφοι κανόνες του σπιτιού; Σκοπός μας είναι να μετατρέψουμε την οικογένεια από πηγή στρες σε πηγή δύναμης, κατανόησης και στήριξης για όλα τα μέλη της.': 'Family therapy changes the lens: we stop pointing the finger at the "problematic" member and begin examining the system as a whole. How do we communicate? How do we resolve our disagreements? What are the unwritten rules of the household? Our goal is to transform the family from a source of stress into a source of strength, understanding, and support for all its members.',
+      'Οικογένειες που μαστίζονται από συνεχείς, εξουθενωτικούς καυγάδες και εντάσεις.': 'Families plagued by constant, exhausting arguments and tensions.',
+      'Γονείς που αντιμετωπίζουν σοβαρές δυσκολίες με τη συμπεριφορά των παιδιών ή των εφήβων τους.': 'Parents facing serious difficulties with their children\'s or teenagers\' behavior.',
+      'Οικογένειες που καλούνται να πλοηγηθούν σε μια μεγάλη αλλαγή (ένα διαζύγιο, μετακόμιση, οικονομική καταστροφή).': 'Families called upon to navigate a major change (divorce, relocation, financial catastrophe).',
+      'Μικτές οικογένειες (από προηγούμενους γάμους) που δυσκολεύονται να ορίσουν τα όριά τους.': 'Blended families (from previous marriages) struggling to establish their boundaries.',
+      'Οικογένειες που θρηνούν την απώλεια ενός μέλους ή προσπαθούν να διαχειριστούν μια χρόνια, σοβαρή ασθένεια.': 'Families mourning the loss of a member or trying to manage a chronic, serious illness.',
+      'Στην οικογενειακή θεραπεία, στο δωμάτιο (ή στην οθόνη) καλούνται να παραβρεθούν όλα τα μέλη που εμπλέκονται στη δυσκολία, ή όσα ζουν κάτω από την ίδια στέγη.': 'In family therapy, all members involved in the difficulty, or those living under the same roof, are invited to attend the room (or screen).',
+      'Πρέπει να έρχονται και τα παιδιά σε κάθε συνεδρία;': 'Do the children need to attend every session?',
+      'Αυτό εξαρτάται από τον σχεδιασμό της θεραπείας. Υπάρχουν συνεδρίες όπου είναι απαραίτητη η παρουσία όλης της οικογένειας, άλλες όπου καλείται μόνο το υποσύστημα των γονιών (ώστε να μιλήσουν ελεύθερα για τον ρόλο τους), και κάποιες φορές μόνο τα αδέρφια. Ο θεραπευτής θα σας καθοδηγήσει σχετικά.': 'This depends on the therapy plan. There are sessions where the entire family\'s presence is necessary, others where only the parental subsystem is invited (so they can speak freely about their role), and sometimes only the siblings. The therapist will guide you accordingly.',
+      'Φοβάμαι ότι ο θεραπευτής θα κατηγορήσει εμάς τους γονείς για τη συμπεριφορά του παιδιού μας.': 'I\'m afraid the therapist will blame us parents for our child\'s behavior.',
+      'Η οικογενειακή θεραπεία δεν αναζητά ενόχους. Σκοπός μας είναι να κατανοήσουμε τους μηχανισμούς και όχι να αποδώσουμε κατηγορίες. Οι γονείς κάνουν πάντα το καλύτερο που μπορούν με βάση τα εργαλεία που διαθέτουν. Ο θεραπευτής σας αντιμετωπίζει ως συμμάχους για τη βελτίωση της κατάστασης.': 'Family therapy does not seek to assign blame. Our goal is to understand the mechanisms, not to lay accusations. Parents always do the best they can with the tools available to them. The therapist treats you as allies in improving the situation.',
+      'Πόσο συχνά γίνονται οι συναντήσεις;': 'How often do the meetings take place?',
+      'Συνήθως οι οικογενειακές συνεδρίες γίνονται ανά δεκαπέντε ημέρες και τείνουν να διαρκούν λίγο περισσότερο (π.χ. 60-90 λεπτά) ώστε να δοθεί ο απαραίτητος χρόνος και χώρος σε όλα τα μέλη να εκφραστούν.': 'Family sessions are usually held every two weeks and tend to last a bit longer (e.g., 60-90 minutes) so that all members are given the necessary time and space to express themselves.',
+
+      /* ===== ONLINE THERAPY PAGE ===== */
+      'Η ΘΕΡΑΠΕΥΤΙΚΗ ΥΠΟΣΤΗΡΙΞΗ, ΟΠΟΥ ΚΙ ΑΝ ΒΡΙΣΚΕΣΤΕ': 'THERAPEUTIC SUPPORT, WHEREVER YOU ARE',
+      'Η τεχνολογία έχει μεταμορφώσει τον τρόπο που επικοινωνούμε, εργαζόμαστε και πλέον, τον τρόπο που φροντίζουμε την ψυχική μας υγεία. Κατανοούμε απόλυτα πως δεν είναι πάντα εφικτό να επισκεφθείτε ένα γραφείο. Η κίνηση στους δρόμους, οι ατελείωτες ώρες εργασίας, τα ταξίδια, ή η διαμονή σας σε άλλη πόλη ή χώρα, δεν θα πρέπει να αποτελούν εμπόδιο στην προσωπική σας ανάπτυξη.': 'Technology has transformed the way we communicate, work, and now, the way we care for our mental health. We fully understand that it is not always feasible to visit an office. Traffic, endless work hours, travel, or living in another city or country should not be an obstacle to your personal growth.',
+      'Η Online Ψυχοθεραπεία σχεδιάστηκε για να σας προσφέρει ακριβώς την ίδια ποιότητα, αφοσίωση και αποτελεσματικότητα με τις δια ζώσης συνεδρίες, προσφέροντάς σας παράλληλα απαράμιλλη ευελιξία. Το δωμάτιο της θεραπείας μεταφέρεται στον δικό σας, ασφαλή και οικείο χώρο, επιτρέποντάς σας να νιώσετε άμεσα άνετα.': 'Online Psychotherapy was designed to offer you exactly the same quality, dedication, and effectiveness as in-person sessions, while providing unparalleled flexibility. The therapy room is transferred to your own safe and familiar space, allowing you to feel immediately comfortable.',
+      'Έλληνες ομογενείς (expats) ή φοιτητές στο εξωτερικό που επιθυμούν να κάνουν ψυχοθεραπεία στη μητρική τους γλώσσα.': 'Greek expatriates or students abroad who wish to have psychotherapy in their native language.',
+      'Κατοίκους της περιφέρειας, νησιών ή απομακρυσμένων περιοχών.': 'Residents of rural areas, islands, or remote locations.',
+      'Επαγγελματίες με απαιτητικά ωράρια ή ανθρώπους με συχνά επαγγελματικά ταξίδια.': 'Professionals with demanding schedules or people with frequent business travel.',
+      'Γονείς (ειδικά μονογονεϊκές οικογένειες ή γονείς βρεφών) που δυσκολεύονται να αφήσουν το σπίτι.': 'Parents (especially single-parent families or parents of infants) who have difficulty leaving home.',
+      'Άτομα με κινητικές δυσκολίες, προβλήματα υγείας, ή άτομα που βιώνουν έντονη αγοραφοβία.': 'Individuals with mobility difficulties, health issues, or those experiencing severe agoraphobia.',
+      'Οι online συνεδρίες πραγματοποιούνται μέσω ασφαλών, κρυπτογραφημένων πλατφορμών τηλεδιάσκεψης (όπως Zoom, Skype, κ.λπ.) που διασφαλίζουν πλήρως το ιατρικό απόρρητο. Η διάρκεια της συνεδρίας παραμένει στα 50 λεπτά.': 'Online sessions are conducted via secure, encrypted video conferencing platforms (such as Zoom, Skype, etc.) that fully ensure medical confidentiality. The session duration remains at 50 minutes.',
+      'Είναι η διαδικτυακή θεραπεία εξίσου αποτελεσματική με τη θεραπεία στο γραφείο;': 'Is online therapy as effective as in-office therapy?',
+      'Απολύτως. Δεκάδες σύγχρονες επιστημονικές έρευνες επιβεβαιώνουν ότι η online ψυχοθεραπεία είναι εξίσου αποτελεσματική με τη δια ζώσης για τις περισσότερες προκλήσεις. Η επιτυχία βασίζεται στη θεραπευτική σχέση, όχι στον φυσικό χώρο.': 'Absolutely. Dozens of modern scientific studies confirm that online psychotherapy is equally effective as in-person therapy for most challenges. Success is based on the therapeutic relationship, not the physical space.',
+      'Τι εξοπλισμό θα χρειαστώ;': 'What equipment will I need?',
+      'Η διαδικασία είναι πολύ απλή. Θα χρειαστείτε μια συσκευή με κάμερα και μικρόφωνο (laptop, υπολογιστή, tablet, ή έστω ένα smartphone) και μια σταθερή σύνδεση στο internet. Το πιο σημαντικό είναι να εξασφαλίσετε έναν ιδιωτικό χώρο.': 'The process is very simple. You will need a device with a camera and microphone (laptop, computer, tablet, or even a smartphone) and a stable internet connection. The most important thing is to ensure a private space.',
+      'Τι συμβαίνει αν κοπεί η σύνδεση στο internet;': 'What happens if the internet connection is cut off?',
+      'Τα τεχνικά προβλήματα είναι μέρος της σύγχρονης πραγματικότητας. Αν η σύνδεση διακοπεί, προσπαθούμε να επανασυνδεθούμε άμεσα. Αν αυτό δεν είναι εφικτό, συνεχίζουμε τη συνεδρία μας τηλεφωνικά ή μεταφέρουμε τον υπολειπόμενο χρόνο.': 'Technical problems are part of modern reality. If the connection is interrupted, we try to reconnect immediately. If that is not feasible, we continue our session by phone or transfer the remaining time.',
+
+
+      /* ===== TEAM MEMBER NAMES ===== */
+      'Κωνσταντίνος Δ. Μούχαλος': 'Konstantinos D. Mouchalos',
+      'Γιώργος Μισαηλίδης': 'Giorgos Misailidis',
+      'Καλλιόπη Μαυρέα, MSc, PhD': 'Kalliopi Mavrea, MSc, PhD',
+      'Όλγα Κοντράσκινα': 'Olga Kontraskina',
+      'Σταυρούλα Τσιώρου': 'Stavroula Tsiorou',
+      'Τζωρτζίνα Σπέντζου': 'Georgina Spentzou',
+      'Βιργινία Καραβάκου': 'Virginia Karavakou',
+      'Αλεξάνδρα Κορδόση': 'Alexandra Kordosi',
+      'Βασίλης Κομνηνός': 'Vasilis Komninos',
+      'Μαρίνα Σιταρένιου': 'Marina Sitareniou',
+      /* ===== TEAM PAGE ===== */
+      '10 εξειδικευμένοι επαγγελματίες, αφοσιωμένοι στην ψυχική σας υγεία.': '10 specialized professionals, dedicated to your mental health.',
+      'ΙΔΡΥΤΗΣ & ΔΙΕΥΘΥΝΤΗΣ Ψ-PSY': 'FOUNDER & DIRECTOR Ψ-PSY',
+      'ΨΥΧΟΘΕΡΑΠΕΥΤΗΣ & ΕΚΠΑΙΔΕΥΤΙΚΟΣ': 'PSYCHOTHERAPIST & EDUCATOR',
+      'ΕΚΠΑΙΔΕΥΤΙΚΟΣ ΕΙΔΙΚΗΣ ΑΓΩΓΗΣ': 'SPECIAL EDUCATION TEACHER',
+      'ΣΥΜΒΟΥΛΟΣ ΨΥΧΙΚΗΣ ΥΓΕΙΑΣ': 'MENTAL HEALTH COUNSELOR',
+      'ΨΥΧΟΛΟΓΟΣ & ΟΙΚΟΓΕΝΕΙΑΚΗ ΘΕΡΑΠΕΥΤΡΙΑ': 'PSYCHOLOGIST & FAMILY THERAPIST',
+      'ΨΥΧΟΛΟΓΟΣ & ΕΙΔΙΚΕΥΟΜΕΝΗ ΨΥΧΟΘΕΡΑΠΕΥΤΡΙΑ': 'PSYCHOLOGIST & PSYCHOTHERAPIST IN TRAINING',
+      'ΨΥΧΟΛΟΓΟΣ & EXECUTIVE COACH': 'PSYCHOLOGIST & EXECUTIVE COACH',
+      'ΣΥΜΒΟΥΛΟΣ ΨΥΧΙΚΗΣ ΥΓΕΙΑΣ & COACH': 'MENTAL HEALTH COUNSELOR & COACH',
+      'ΣΥΜΒΟΥΛΕΥΤΙΚΗ ΨΥΧΟΛΟΓΟΣ & ΟΜΑΔΙΚΗ ΨΥΧΟΘΕΡΑΠΕΥΤΡΙΑ': 'COUNSELING PSYCHOLOGIST & GROUP PSYCHOTHERAPIST',
+      'ΨΥΧΟΛΟΓΟΣ - ΨΥΧΟΘΕΡΑΠΕΥΤΗΣ': 'PSYCHOLOGIST - PSYCHOTHERAPIST',
+
+      /* ===== INDIVIDUAL TEAM BIO PAGES ===== */
+      'ΕΞΕΙΔΙΚΕΥΣΗ': 'SPECIALIZATION',
+      'Ο Κωνσταντίνος Δ. Μούχαλος είναι σχεσιακός ψυχαναλυτικός και ομαδικός ψυχοθεραπευτής με έδρα την Αθήνα. Ειδικεύτηκε στη Σχεσιακή Ψυχανάλυση και στην Ομαδική Ψυχοθεραπεία κατά Yalom.': 'Konstantinos D. Mouchalos is a relational psychoanalytic and group psychotherapist based in Athens. He specialized in Relational Psychoanalysis and Yalom Group Psychotherapy.',
+      'Ολοκλήρωσε μεταπτυχιακές σπουδές στο ΕΚΠΑ στην Ιατρική Ψυχολογία, την Ψυχοθεραπεία και τη Συμβουλευτική Ζεύγους, και εκπαίδευση στην Ψυχολογική Πρώτη Βοήθεια στα Johns Hopkins, UCLA και Duke.': 'He completed postgraduate studies at the University of Athens in Medical Psychology, Psychotherapy, and Couples Counseling, as well as training in Psychological First Aid at Johns Hopkins, UCLA, and Duke.',
+      'Από το 2016 διατηρεί ιδιωτικό γραφείο στη Γλυφάδα και είναι ιδρυτής και διευθυντής του Ψ-PSY. Εξειδικεύεται στην ατομική ψυχοθεραπεία, την ομαδική ψυχοθεραπεία και τη θεραπεία ζεύγους.': 'Since 2016, he has maintained a private practice in Glyfada and is the founder and director of Ψ-PSY. He specializes in individual psychotherapy, group psychotherapy, and couples therapy.',
+      'ΣΧΕΣΙΑΚΗ ΨΥΧΑΝΑΛΥΣΗ': 'RELATIONAL PSYCHOANALYSIS',
+      'ΟΜΑΔΙΚΗ ΨΥΧΟΘΕΡΑΠΕΙΑ YALOM': 'YALOM GROUP PSYCHOTHERAPY',
+      'ΘΕΡΑΠΕΙΑ ΖΕΥΓΟΥΣ': 'COUPLES THERAPY',
+      'Ο Γιώργος Μισαηλίδης είναι ψυχοθεραπευτής και εκπαιδευτικός με εκτενή εμπειρία στην ψυχολογία, την εκπαίδευση και την ανθρώπινη ανάπτυξη. Κατέχει πτυχίο (BSc) στην Ψυχολογία, μεταπτυχιακό δίπλωμα στην Εφαρμοσμένη Ψυχολογία και μεταπτυχιακό δίπλωμα στο Γνωσιακό Αναλυτικό Μοντέλο Ψυχοθεραπείας.': 'Giorgos Misailidis is a psychotherapist and educator with extensive experience in psychology, education, and human development. He holds a BSc in Psychology, a postgraduate degree in Applied Psychology, and a postgraduate degree in the Cognitive Analytic Model of Psychotherapy.',
+      'Κατά τη διάρκεια της πορείας του, έχει ολοκληρώσει πάνω από 16.000 ώρες διδασκαλίας και συμβουλευτικής υποστήριξης σε εφήβους και ενήλικες. Εξειδικεύεται στην ψυχολογία των εφήβων, στις διαδικασίες υπαρξιακού επαναπροσδιορισμού και στην αθλητική ψυχολογία.': 'Throughout his career, he has completed over 16,000 hours of teaching and counseling support for adolescents and adults. He specializes in adolescent psychology, existential redefinition processes, and sports psychology.',
+      'Το έργο του εστιάζει στην ενίσχυση της ψυχολογικής ανθεκτικότητας, την προσωπική ευθύνη και την καλλιέργεια νοήματος σε άτομα που διανύουν κρίσιμες μεταβατικές φάσεις. Είναι μέλος του ΙΨΥΨΕ και της IARPP.': 'His work focuses on strengthening psychological resilience, personal responsibility, and cultivating meaning in individuals going through critical transitional phases. He is a member of IPYPE and IARPP.',
+      'ΨΥΧΟΛΟΓΙΑ ΕΦΗΒΩΝ': 'ADOLESCENT PSYCHOLOGY',
+      'ΥΠΑΡΞΙΑΚΟΣ ΕΠΑΝΑΠΡΟΣΔΙΟΡΙΣΜΟΣ': 'EXISTENTIAL REDEFINITION',
+      'ΑΘΛΗΤΙΚΗ ΨΥΧΟΛΟΓΙΑ': 'SPORTS PSYCHOLOGY',
+      'ΨΥΧΟΛΟΓΙΚΗ ΑΝΘΕΚΤΙΚΟΤΗΤΑ': 'PSYCHOLOGICAL RESILIENCE',
+      'Η Καλλιόπη Μαυρέα είναι Εκπαιδευτικός Γενικής και Ειδικής Αγωγής με δεκαοχτώ (18) έτη εργασιακής εμπειρίας. Είναι απόφοιτη του Παιδαγωγικού Τμήματος Δημοτικής Εκπαίδευσης του ΕΚΠΑ, με μεταπτυχιακό στην Ειδική Αγωγή.': 'Kalliopi Mavrea is a General and Special Education Teacher with eighteen (18) years of professional experience. She is a graduate of the Department of Primary Education at the University of Athens, with a postgraduate degree in Special Education.',
+      'Στελεχώνει τη Μονάδα Αξιολόγησης και Πιστοποίησης Εφήβων 11-17 ετών με Μαθησιακές Δυσκολίες του Ειδικού Κέντρου Εφηβικής Ιατρικής στο Νοσοκομείο Παίδων «Η Αγία Σοφία».': 'She staffs the Assessment and Certification Unit for Adolescents aged 11-17 with Learning Difficulties at the Adolescent Medicine Center of "Agia Sofia" Children\'s Hospital.',
+      'Εκπόνησε τη διδακτορική της διατριβή με θέμα τη συγκριτική μελέτη αξιολόγησης του νοητικού, μαθησιακού και ψυχοκοινωνικού προφίλ παιδιών και εφήβων επιβιωσάντων από καρκίνο.': 'She completed her doctoral dissertation on the comparative assessment study of the cognitive, learning, and psychosocial profile of children and adolescents who survived cancer.',
+      'ΕΙΔΙΚΗ ΑΓΩΓΗ': 'SPECIAL EDUCATION',
+      'ΜΑΘΗΣΙΑΚΕΣ ΔΥΣΚΟΛΙΕΣ': 'LEARNING DIFFICULTIES',
+      'ΕΦΗΒΙΚΗ ΨΥΧΟΛΟΓΙΑ': 'ADOLESCENT PSYCHOLOGY',
+      'Η Όλγα Κοντράσκινα είναι Σύμβουλος Ψυχικής Υγείας, με ακαδημαϊκό υπόβαθρο στην Κοινωνική Ανθρωπολογία και μεταπτυχιακές σπουδές (MA) στη Συμβουλευτική και Ψυχοθεραπεία.': 'Olga Kontraskina is a Mental Health Counselor, with an academic background in Social Anthropology and postgraduate studies (MA) in Counseling and Psychotherapy.',
+      'Η προσέγγισή της είναι μη κατευθυντική. Δημιουργεί έναν ασφαλή χώρο όπου η εμπειρία μπορεί να ειπωθεί, να παρατηρηθεί και να κατανοηθεί.': 'Her approach is non-directive. She creates a safe space where experience can be spoken, observed, and understood.',
+      'Ενδιαφέρεται ιδιαίτερα για ζητήματα ταυτότητας, συναισθηματικής ωρίμανσης, μοναξιάς και τις αθέατες δυναμικές που διαμορφώνουν τις ανθρώπινες σχέσεις.': 'She is particularly interested in issues of identity, emotional maturation, loneliness, and the unseen dynamics that shape human relationships.',
+      'ΖΗΤΗΜΑΤΑ ΤΑΥΤΟΤΗΤΑΣ': 'IDENTITY ISSUES',
+      'ΣΥΝΑΙΣΘΗΜΑΤΙΚΗ ΩΡΙΜΑΝΣΗ': 'EMOTIONAL MATURATION',
+      'ΚΟΙΝΩΝΙΚΗ ΑΝΘΡΩΠΟΛΟΓΙΑ': 'SOCIAL ANTHROPOLOGY',
+      'Η Σταυρούλα Τσιώρου είναι εκπαιδευτικός, ψυχολόγος, συστημική οικογενειακή ψυχοθεραπεύτρια και πιστοποιημένη ομαδική ψυχοθεραπεύτρια σύμφωνα με το μοντέλο του Irvin Yalom.': 'Stavroula Tsiorou is an educator, psychologist, systemic family psychotherapist, and certified group psychotherapist according to the Irvin Yalom model.',
+      'Είναι απόφοιτη των Τμημάτων Ιστορίας/Αρχαιολογίας και Ψυχολογίας του Πανεπιστημίου Αθηνών, με εξειδίκευση στην Ψυχολογία της Εφηβικής και Αναπτυξιακής Υγείας.': 'She is a graduate of the Departments of History/Archaeology and Psychology at the University of Athens, specializing in Adolescent and Developmental Health Psychology.',
+      'Συντονίζει ομάδες σχεσιακής ομαδικής ψυχοθεραπείας και παρέχει ψυχοθεραπευτικό έργο σε ζεύγη και άτομα. Συνεργάζεται με το Χωρέμειο Ερευνητικό Παιδιατρικό Κέντρο.': 'She coordinates relational group psychotherapy groups and provides psychotherapeutic work for couples and individuals. She collaborates with the Choremio Research Pediatric Center.',
+      'ΣΥΣΤΗΜΙΚΗ ΟΙΚΟΓΕΝΕΙΑΚΗ ΘΕΡΑΠΕΙΑ': 'SYSTEMIC FAMILY THERAPY',
+      'Η Τζωρτζίνα Σπέντζου είναι ψυχολόγος και ψυχοθεραπεύτρια, business και executive coach, με 26 χρόνια εμπειρίας σε ελληνικές και πολυεθνικές εταιρίες.': 'Georgina Spentzou is a psychologist and psychotherapist, business and executive coach, with 26 years of experience in Greek and multinational companies.',
+      'Κατέχει Executive Master στο Coaching και Συμβουλευτική για Αλλαγή από το INSEAD. Εξειδικεύεται στη συμβουλευτική στελεχών σε θέματα αλλαγής κουλτούρας.': 'She holds an Executive Master in Coaching and Consulting for Change from INSEAD. She specializes in executive consulting on cultural change issues.',
+      'Είναι συγγραφέας του βιβλίου "Soulful and Impactful Entrepreneurs" και πιστοποιημένη σε εργαλεία DISC, Myers-Briggs, Hogan.': 'She is the author of the book "Soulful and Impactful Entrepreneurs" and certified in DISC, Myers-Briggs, and Hogan tools.',
+      'ΗΓΕΣΙΑ & ΟΜΑΔΕΣ': 'LEADERSHIP & TEAMS',
+      'ΟΡΓΑΝΩΣΙΑΚΗ ΑΛΛΑΓΗ': 'ORGANIZATIONAL CHANGE',
+      'Η Βιργινία Καραβάκου είναι πιστοποιημένη Σύμβουλος Ψυχικής Υγείας (MA) και Coach (MSc στην Εφαρμοσμένη Θετική Ψυχολογία & Coaching Psychology).': 'Virginia Karavakou is a certified Mental Health Counselor (MA) and Coach (MSc in Applied Positive Psychology & Coaching Psychology).',
+      'Προσφέρει συνεδρίες στα ελληνικά και τα αγγλικά στο Ψ-PSY και διαδικτυακά. Η προσέγγισή της αντλεί από προσωποκεντρικές, υπαρξιακές, ψυχοδυναμικές και γνωσιακές-συμπεριφορικές θεωρίες.': 'She offers sessions in Greek and English at Ψ-PSY and online. Her approach draws from person-centered, existential, psychodynamic, and cognitive-behavioral theories.',
+      'Υποστηρίζει άτομα που νιώθουν εγκλωβισμένα, βοηθώντας τα να διαχειριστούν το άγχος, να βελτιώσουν τις σχέσεις τους και να ανακαλύψουν ξανά τη δημιουργικότητά τους.': 'She supports individuals who feel stuck, helping them manage anxiety, improve their relationships, and rediscover their creativity.',
+      'ΘΕΤΙΚΗ ΨΥΧΟΛΟΓΙΑ': 'POSITIVE PSYCHOLOGY',
+      'ΔΙΑΧΕΙΡΙΣΗ ΑΓΧΟΥΣ': 'ANXIETY MANAGEMENT',
+      'Η Αλεξάνδρα Κορδόση είναι Πιστοποιημένη Συμβουλευτική Ψυχολόγος και Ομαδική Ψυχοθεραπεύτρια με δεκαεπτά (17) έτη εργασιακής εμπειρίας. Είναι κάτοχος πτυχίου Ψυχολογίας (BSc.) από το Middlesex University και μεταπτυχιακού (MA.) στην Ψυχοθεραπεία και Συμβουλευτική από το Regent\'s College του Λονδίνου.': 'Alexandra Kordosi is a Certified Counseling Psychologist and Group Psychotherapist with seventeen (17) years of professional experience. She holds a BSc in Psychology from Middlesex University and an MA in Psychotherapy and Counseling from Regent\'s College, London.',
+      'Διατηρεί ιδιωτικό γραφείο από το 2009, δουλεύοντας με ενήλικες, εφήβους και παιδιά, παρέχοντας ατομική, ομαδική, θεραπεία ζεύγους και οικογένειας με βάση τη Σχεσιακή Ψυχανάλυση και το Διαδραστικό Μοντέλο του I. Yalom.': 'She has maintained a private practice since 2009, working with adults, adolescents, and children, providing individual, group, couples, and family therapy based on Relational Psychoanalysis and the Interactive Model of I. Yalom.',
+      'Έχει ολοκληρώσει τριετή μεταπτυχιακή εξειδίκευση στην Ομαδική Ψυχοθεραπεία (ΙΣΟΨ), είναι πιστοποιημένη θεραπεύτρια Ψυχικού Τραύματος (PTSD) και Υποστήριξης στο Πένθος, ενώ έχει εκδώσει επιστημονικά άρθρα στον τομέα της Σχεσιακής Ψυχανάλυσης.': 'She has completed a three-year postgraduate specialization in Group Psychotherapy (ISOP), is a certified Psychological Trauma (PTSD) and Grief Support therapist, and has published scientific articles in the field of Relational Psychoanalysis.',
+      'ΣΥΜΒΟΥΛΕΥΤΙΚΗ ΨΥΧΟΛΟΓΙΑ': 'COUNSELING PSYCHOLOGY',
+      'ΟΜΑΔΙΚΗ ΨΥΧΟΘΕΡΑΠΕΙΑ': 'GROUP PSYCHOTHERAPY',
+      'ΣΧΕΣΙΑΚΗ ΨΥΧΑΝΑΛΥΣΗ': 'RELATIONAL PSYCHOANALYSIS',
+      'Ο Βασίλης Κομνηνός είναι Ψυχολόγος - Ψυχοθεραπευτής. Είναι απόφοιτος του τμήματος Ψυχολογίας (BSc) του Open University του Ηνωμένου Βασιλείου, με μεταπτυχιακή εκπαίδευση στη Σχεσιακή Ομαδική Ψυχοθεραπεία από το ΙΣΟΨ.': 'Vasilis Komninos is a Psychologist - Psychotherapist. He is a graduate of the Psychology department (BSc) at the Open University of the United Kingdom, with postgraduate training in Relational Group Psychotherapy from ISOP.',
+      'Ασχολείται κλινικά με την ψυχοθεραπεία ατόμων και ομάδων στο ιδιωτικό του γραφείο καθώς και μέσω συνεργασιών με θεραπευτικά κέντρα, εφαρμόζοντας μια συνθετική προσέγγιση με έμφαση στη σχεσιακή αναλυτική κατεύθυνση. Αποτελεί μέλος της διδακτικής ομάδας του ΙΣΟΨ και συμμετέχει ενεργά με ακαδημαϊκές δημοσιεύσεις.': 'He clinically practices psychotherapy for individuals and groups at his private office as well as through collaborations with therapeutic centers, applying a synthetic approach with emphasis on the relational analytic orientation. He is a member of the teaching team at ISOP and actively participates with academic publications.',
+      'Παράλληλα, είναι απόφοιτος της Ανωτάτης Σχολής Καλών Τεχνών, συνδυάζοντας την ψυχοθεραπευτική του ιδιότητα με αυτή του εικαστικού, έχοντας μάλιστα φιλοτεχνήσει εξώφυλλα επιστημονικών εκδόσεων ψυχολογίας.': 'Additionally, he is a graduate of the Athens School of Fine Arts, combining his psychotherapeutic identity with that of a visual artist, having even designed covers for scientific psychology publications.',
+      'ΨΥΧΟΔΥΝΑΜΙΚΗ ΚΑΤΕΥΘΥΝΣΗ': 'PSYCHODYNAMIC ORIENTATION',
+      'ΣΧΕΣΙΑΚΗ ΑΝΑΛΥΤΙΚΗ ΘΕΡΑΠΕΙΑ': 'RELATIONAL ANALYTIC THERAPY',
+      'Η Μαρίνα Σιταρένιου είναι Ψυχολόγος και Ειδικευόμενη Σχεσιακή & Ομαδική Ψυχοθεραπεύτρια με εννέα (9) έτη κλινικής και εκπαιδευτικής εμπειρίας. Είναι απόφοιτη του τμήματος Ψυχολογίας του Πανεπιστημίου της Ρώμης «La Sapienza», με μεταπτυχιακό στην Παιδική και Εφηβική Ψυχολογία από το Πανεπιστήμιο Leiden της Ολλανδίας.': 'Marina Sitareniou is a Psychologist and Relational & Group Psychotherapist in Training with nine (9) years of clinical and educational experience. She is a graduate of the Psychology department at the University of Rome "La Sapienza," with a postgraduate degree in Child and Adolescent Psychology from Leiden University in the Netherlands.',
+      'Διατηρεί ιδιωτικό γραφείο στην Καλλιθέα και παράλληλα συνεργάζεται με το Ινστιτούτο Ψυχικής Υγείας & Ψυχοθεραπείας Ελλάδας, παρέχοντας δια ζώσης και online ψυχοθεραπευτικές συνεδρίες.': 'She maintains a private practice in Kallithea and also collaborates with the Institute of Mental Health & Psychotherapy of Greece, providing in-person and online psychotherapy sessions.',
+      'Διαθέτει σημαντική εμπειρία στην ειδική αγωγή και την υποστήριξη ατόμων στο φάσμα του αυτισμού από τη θητεία της σε διεθνή σχολεία, ενώ έχει εκπαιδευτεί επιπλέον στην Ψυχοογκολογία, τη Μουσικοθεραπεία και την Online Ψυχοθεραπεία.': 'She possesses significant experience in special education and supporting individuals on the autism spectrum from her tenure at international schools, and has additionally been trained in Psycho-oncology, Music Therapy, and Online Psychotherapy.',
+      'ΠΑΙΔΙΚΗ ΚΑΙ ΕΦΗΒΙΚΗ ΨΥΧΟΛΟΓΙΑ': 'CHILD AND ADOLESCENT PSYCHOLOGY',
+      'ΣΧΕΣΙΑΚΗ ΚΑΙ ΟΜΑΔΙΚΗ ΨΥΧΟΘΕΡΑΠΕΙΑ': 'RELATIONAL AND GROUP PSYCHOTHERAPY',
+
+      /* ===== THE CENTER PAGE ===== */
+      'ΠΕΡΙΒΑΛΛΟΝ & ΦΙΛΟΣΟΦΙΑ': 'ENVIRONMENT & PHILOSOPHY',
+      'Το Κέντρο': 'The Center',
+      'Η Αποστολή μας': 'Our Mission',
+      'Το Ινστιτούτο Ψυχικής Υγείας και Ψυχοθεραπείας (Ψ-PSY) ιδρύθηκε με όραμα τη δημιουργία ενός σύγχρονου, διεπιστημονικού χώρου αφιερωμένου στην ψυχική υγεία, την ψυχοθεραπεία και την ανθρώπινη ανάπτυξη.': 'The Institute of Mental Health and Psychotherapy (Ψ-PSY) was founded with the vision of creating a modern, interdisciplinary space dedicated to mental health, psychotherapy, and human development.',
+      'Με έδρα τη Γλυφάδα Αττικής, η ομάδα μας αποτελείται από 9 εξειδικευμένους επαγγελματίες ψυχικής υγείας — ψυχολόγους, ψυχοθεραπευτές και εκπαιδευτικούς — οι οποίοι συνεργάζονται για επιστημονικά τεκμηριωμένη και ανθρωποκεντρική φροντίδα.': 'Based in Glyfada, Attica, our team consists of 9 specialized mental health professionals — psychologists, psychotherapists, and educators — who collaborate to provide evidence-based and person-centered care.',
+      'ΟΙ ΑΡΧΕΣ ΜΑΣ': 'OUR PRINCIPLES',
+      'Οι Αξίες μας': 'Our Values',
+      'Ασφάλεια': 'Safety',
+      'Ένα περιβάλλον εμπιστοσύνης και σεβασμού, όπου κάθε εμπειρία ακούγεται χωρίς κρίση.': 'An environment of trust and respect, where every experience is heard without judgment.',
+      'Επιστημονική Τεκμηρίωση': 'Evidence-Based Practice',
+      'Κάθε παρέμβαση βασίζεται σε αποδεδειγμένες θεραπευτικές μεθόδους.': 'Every intervention is based on proven therapeutic methods.',
+      'Ανθρωποκεντρικότητα': 'Person-Centeredness',
+      'Το άτομο είναι πάντα στο κέντρο — με τις μοναδικές ανάγκες και τη δική του ιστορία.': 'The individual is always at the center — with their unique needs and their own story.',
+      'Ανάπτυξη': 'Growth',
+      'Πιστεύουμε στη δυνατότητα κάθε ανθρώπου να αλλάξει, να αναπτυχθεί και να ανθίσει.': 'We believe in every person\'s potential to change, grow, and flourish.',
+      'ΑΙΣΘΗΤΙΚΗ & ΓΑΛΗΝΗ': 'AESTHETICS & SERENITY',
+      'Ο Χώρος': 'The Space',
+      'Ένας σύγχρονος, φιλόξενος χώρος σχεδιασμένος για να αισθάνεστε άνετα και ασφαλείς.': 'A modern, welcoming space designed to make you feel comfortable and safe.',
+
+      /* ===== CONTACT PAGE ===== */
+      'ΑΣ ΜΙΛΗΣΟΥΜΕ': 'LET\'S TALK',
+      'Επικοινωνία': 'Contact',
+      'Είμαστε εδώ για εσάς. Κλείστε μια συνεδρία ή ρωτήστε μας ό,τι σας απασχολεί.': 'We are here for you. Book a session or ask us anything on your mind.',
+      'Στοιχεία Επικοινωνίας': 'Contact Details',
+      'ΔΙΕΥΘΥΝΣΗ': 'ADDRESS',
+      'ΤΗΛΕΦΩΝΟ': 'PHONE',
+      'ΩΡΑΡΙΟ': 'HOURS',
+      'Δευτέρα – Παρασκευή: 09:00 – 21:00': 'Monday – Friday: 09:00 – 21:00',
+      'Σάββατο: Κατόπιν ραντεβού': 'Saturday: By appointment',
+
+      /* ===== FOOTER ===== */
+      'Ινστιτούτο Ψυχικής Υγείας και Ψυχοθεραπείας. Ένας ασφαλής, διεπιστημονικός χώρος αφιερωμένος στην ψυχική σας υγεία.': 'Institute of Mental Health and Psychotherapy. A safe, interdisciplinary space dedicated to your mental health.',
+      'ΓΡΗΓΟΡΟΙ ΣΥΝΔΕΣΜΟΙ': 'QUICK LINKS',
+      '© 2026 Ψ-PSY ΙΝΣΤΙΤΟΥΤΟ ΨΥΧΙΚΗΣ ΥΓΕΙΑΣ ΚΑΙ ΨΥΧΟΘΕΡΑΠΕΙΑΣ.': '© 2026 Ψ-PSY INSTITUTE OF MENTAL HEALTH AND PSYCHOTHERAPY.',
+      'ΜΕ ΕΠΙΦΥΛΑΞΗ ΠΑΝΤΟΣ ΔΙΚΑΙΩΜΑΤΟΣ.': 'ALL RIGHTS RESERVED.',
+
+
+      /* ===== ADDRESS ===== */
+      'Λεωφόρος Δημάρχου Αγγέλου Μεταξά 30': '30 Dimarchou Angelou Metaxa Avenue',
+      'Γλυφάδα, 16674, Ελλάδα': 'Glyfada, 16674, Greece',
+      'Λ. Δημ. Αγγ. Μεταξά 30,': '30 Dim. Ang. Metaxa Ave.,',
+      'Γλυφάδα 16674': 'Glyfada 16674',
+    };
+
+    // Sort keys by length descending to match longer strings first
+    const sortedKeys = Object.keys(dict).sort((a, b) => b.length - a.length);
+
+    function walkTextNodes(root, callback) {
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null, false);
+      const nodes = [];
+      while (walker.nextNode()) nodes.push(walker.currentNode);
+      nodes.forEach(callback);
+    }
+
+    function translateToEnglish() {
+      // Store originals and translate
+      walkTextNodes(document.body, (node) => {
+        const text = node.textContent;
+        if (!text.trim()) return;
+        // Skip script/style nodes
+        if (node.parentElement && (node.parentElement.tagName === 'SCRIPT' || node.parentElement.tagName === 'STYLE')) return;
+        if (!originalTexts.has(node)) {
+          originalTexts.set(node, text);
+        }
+        let newText = text;
+        for (const key of sortedKeys) {
+          if (newText.includes(key)) {
+            newText = newText.split(key).join(dict[key]);
+          }
+        }
+        if (newText !== text) {
+          node.textContent = newText;
+        }
+      });
+    }
+
+    function restoreGreek() {
+      originalTexts.forEach((original, node) => {
+        if (node.parentNode) {
+          node.textContent = original;
+        }
+      });
+      originalTexts.clear();
+    }
+
     function toggleLanguage() {
-      var combo = document.querySelector('.goog-te-combo');
-      if (!combo) {
-        alert("The translation module is still loading. Please wait a moment or test on a live web server.");
-        return;
+      if (currentLang === 'el') {
+        currentLang = 'en';
+        translateToEnglish();
+      } else {
+        currentLang = 'el';
+        restoreGreek();
       }
-      
-      // Determine current language state from combo box
-      var currentLang = combo.value || 'el';
-      var nextLang = currentLang === 'en' ? 'el' : 'en';
-      
-      // Change the value and dispatch change event to trigger Google Translate instantly
-      combo.value = nextLang;
-      combo.dispatchEvent(new Event('change'));
-      
-      // Update UI Buttons
-      var newText = nextLang === 'en' ? 'EL' : 'EN';
+      const newText = currentLang === 'el' ? 'EN' : 'EL';
       document.getElementById('langToggleBtnDesktop').innerText = newText;
       document.getElementById('langToggleBtnMobile').innerText = newText;
     }
-
-    // Set initial button state based on active translation
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            var combo = document.querySelector('.goog-te-combo');
-            if (combo && combo.value === 'en') {
-                document.getElementById('langToggleBtnDesktop').innerText = 'EL';
-                document.getElementById('langToggleBtnMobile').innerText = 'EL';
-            }
-        }, 1000);
-    });
 
     /* --- Cinematic Wipe Navigation --- */
     let currentPage = 'home';
@@ -1737,7 +2023,17 @@
       document.body.style.overflow = '';
     }
 
-    /* --- 3D Card Dynamic Glare --- */
+    /* --- Bento & 3D Card Hover & Dynamic Glare --- */
+    document.querySelectorAll('.bento-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width * 100);
+        const y = ((e.clientY - rect.top) / rect.height * 100);
+        card.style.setProperty('--mouse-x', x + '%');
+        card.style.setProperty('--mouse-y', y + '%');
+      });
+    });
+
     document.querySelectorAll('.tilt-card').forEach(card => {
       const inner = card.querySelector('.tilt-card-inner');
       const glare = card.querySelector('.glare');
